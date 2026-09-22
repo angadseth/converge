@@ -413,6 +413,78 @@
       </div>
     </section>
 
+    <!-- ======================= 05 MLT ======================= -->
+    <section class="chapter" id="mlt">
+      <div class="chapter__head"><span class="chapter__n">05</span><h2><span class="sw sw--mlt" aria-hidden="true"></span>MLT: Machine Learning Techniques</h2></div>
+      <div class="body">
+        <p class="lead">The course where the maths becomes algorithms you can explain. It is also the course the MLP Project viva leans on most.</p>
+        <p class="note">74 lectures, L1 to L74, about 27 hours.</p>
+        <p>Taught by Arun Rajkumar. The <a href="https://study.iitm.ac.in/ds/course_pages/BSCS2007.html">course page</a> sets the aim: "the main methods and models used in machine learning problems of regression, classification and clustering", and "their suitability for different problems". Its week list matches the <a href="https://www.youtube.com/playlist?list=PLZ2ps__7DhBbA_e6_G3FI-BA1f7lCINUu">lecture order</a>.</p>
+      </div>
+      <div class="tbl wide">
+        <table class="ledger ledger--weeks">
+          <thead><tr><th>Week</th><th>What you learn</th><th>Lectures (my grouping)</th></tr></thead>
+          <tbody>
+            <tr><td class="n">1</td><td>Representation learning and PCA</td><td class="aside">L1&ndash;L9</td></tr>
+            <tr><td class="n">2</td><td>Kernel PCA</td><td class="aside">L10&ndash;L12</td></tr>
+            <tr><td class="n">3</td><td>Clustering: K-means and kernel K-means</td><td class="aside">L13&ndash;L18</td></tr>
+            <tr><td class="n">4</td><td>Estimation: MLE, Bayesian estimation, Gaussian mixtures and EM</td><td class="aside">L19&ndash;L26</td></tr>
+            <tr><td class="n">5</td><td>Regression: least squares and its Bayesian view</td><td class="aside">L27&ndash;L35</td></tr>
+            <tr><td class="n">6</td><td>Ridge and LASSO</td><td class="aside">L36&ndash;L40</td></tr>
+            <tr><td class="n">7</td><td>Classification: k-nearest neighbours, decision trees</td><td class="aside">L41&ndash;L44</td></tr>
+            <tr><td class="n">8</td><td>Generative models: Naive Bayes</td><td class="aside">L45&ndash;L51</td></tr>
+            <tr><td class="n">9</td><td>Perceptron and logistic regression</td><td class="aside">L52&ndash;L56</td></tr>
+            <tr><td class="n">10</td><td>Support vector machines</td><td class="aside">L57&ndash;L65</td></tr>
+            <tr><td class="n">11</td><td>Ensembles: bagging and boosting (AdaBoost)</td><td class="aside">L66&ndash;L71</td></tr>
+            <tr><td class="n">12</td><td>Neural networks; multiclass classification</td><td class="aside">L72&ndash;L74</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="body">
+        <h3>The one habit: five components for every model</h3>
+        <p>For every method, be able to say five things: what <b>data</b> it expects, what <b>model</b> it can represent, what <b>loss</b> it minimises, how it is <b>trained</b>, and how it is <b>evaluated</b>. This is not my framing. It is exactly what the MLP Project's Level&nbsp;2 viva asks for, for "every machine learning model that you have learnt and/or used", and the programme even has a short official series on it called <a href="https://www.youtube.com/playlist?list=PLZ2ps__7DhBYtYINAb1qm8Um8f4DegtMa">MLT to MLP</a>. Here is a start. Write your own as the course goes.</p>
+      </div>
+      <div class="tbl wide">
+        <table class="ledger ledger--stack">
+          <thead><tr><th>Method</th><th>Model</th><th>Loss or objective</th><th>Trained by</th></tr></thead>
+          <tbody>
+            <tr><td>PCA</td><td data-l="Model">Projection onto the top k eigenvectors of the covariance</td><td data-l="Loss">Reconstruction error (same as maximising variance)</td><td data-l="Trained by">Eigendecomposition</td></tr>
+            <tr><td>Kernel PCA</td><td data-l="Model">PCA in a feature space given by a kernel</td><td data-l="Loss">Same, in feature space</td><td data-l="Trained by">Eigendecomposition of the kernel matrix</td></tr>
+            <tr><td>K-means</td><td data-l="Model">k centroids; each point joins the nearest</td><td data-l="Loss">Within-cluster sum of squared distances</td><td data-l="Trained by">Lloyd's algorithm: assign, update, repeat</td></tr>
+            <tr><td>Gaussian mixture</td><td data-l="Model">Weighted sum of k Gaussians</td><td data-l="Loss">Negative log-likelihood</td><td data-l="Trained by">EM</td></tr>
+            <tr><td>Linear regression</td><td data-l="Model">w&middot;x</td><td data-l="Loss">Squared error</td><td data-l="Trained by">Normal equations or gradient descent</td></tr>
+            <tr><td>Ridge / LASSO</td><td data-l="Model">w&middot;x</td><td data-l="Loss">Squared error + &lambda;&#8214;w&#8214;&sup2; or + &lambda;&#8214;w&#8214;&#8321;</td><td data-l="Trained by">Closed form (ridge); subgradient methods (LASSO)</td></tr>
+            <tr><td>k-NN</td><td data-l="Model">Vote of the k nearest training points</td><td data-l="Loss">None, nothing is fitted</td><td data-l="Trained by">Store the data</td></tr>
+            <tr><td>Decision tree</td><td data-l="Model">Axis-aligned splits into regions</td><td data-l="Loss">Impurity (entropy or Gini) at each split</td><td data-l="Trained by">Greedy splitting</td></tr>
+            <tr><td>Naive Bayes</td><td data-l="Model">Features independent given the class</td><td data-l="Loss">Likelihood</td><td data-l="Trained by">Counting, with Laplace smoothing</td></tr>
+            <tr><td>Perceptron</td><td data-l="Model">sign(w&middot;x)</td><td data-l="Loss">Number of mistakes</td><td data-l="Trained by">Update w on each mistake</td></tr>
+            <tr><td>Logistic regression</td><td data-l="Model">&sigma;(w&middot;x), a probability</td><td data-l="Loss">Log loss</td><td data-l="Trained by">Gradient descent</td></tr>
+            <tr><td>SVM</td><td data-l="Model">sign(w&middot;x + b) with the widest margin</td><td data-l="Loss">Hinge loss + &#8214;w&#8214;&sup2;</td><td data-l="Trained by">The dual problem; kernels for curved boundaries</td></tr>
+            <tr><td>Bagging, random forest</td><td data-l="Model">Average of trees on bootstrap samples</td><td data-l="Loss">Each tree's own</td><td data-l="Trained by">Trees trained independently</td></tr>
+            <tr><td>AdaBoost</td><td data-l="Model">Weighted vote of weak learners</td><td data-l="Loss">Exponential loss</td><td data-l="Trained by">Reweight the misclassified points each round</td></tr>
+            <tr><td>Neural network</td><td data-l="Model">Layers of weighted sums and non-linearities</td><td data-l="Loss">Cross-entropy or squared error</td><td data-l="Trained by">Backpropagation and gradient descent</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="body">
+        <h3>Books and notes</h3>
+        <p class="note">Bishop's chapter map: regression 3, classifiers 4, neural nets 5, SVMs 7, EM 9, PCA 12, boosting 14.</p>
+        <p>The course page prescribes three books: Duda, Hart and Stork's <i>Pattern Classification</i>, Bishop's <a href="https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/"><i>Pattern Recognition and Machine Learning</i></a>, and <a href="https://hastie.su.domains/ElemStatLearn/"><i>The Elements of Statistical Learning</i></a>. The last two are free from their authors. If they feel heavy, <a href="https://www.statlearning.com/"><i>An Introduction to Statistical Learning</i></a> is the gentle version, and Stanford's <a href="https://cs229.stanford.edu/main_notes.pdf">CS229 notes</a> derive most of the same algorithms in a few pages each. Closest of all are notes written for this course: the <a href="https://bsc-iitm.github.io/MLT_notes/">MLT notes</a> on the programme's GitHub, with slides and Colab notebooks for each week.</p>
+
+        <h3>How MLT is marked</h3>
+      </div>
+      <div class="formula">
+        <p class="formula__eq"><var>T</var> = 0.05&middot;GAA + max( 0.6&middot;F + 0.25&middot;max(Qz1, Qz2), 0.4&middot;F + 0.25&middot;Qz1 + 0.3&middot;Qz2 )</p>
+        <p class="formula__where">The same formula, GAA and eligibility as MLF. Plus a bonus of 3 marks for submitting the programming assignments, if your average across all assignments is at least 40.</p>
+      </div>
+      <div class="body">
+        <p>Like every bonus in the programme, it is added only if you pass. It can lift your grade; it cannot turn a fail into a pass.</p>
+        <p>The MLT course team also runs <a href="https://www.youtube.com/channel/UCDfGVHEjpmm9ReQ4S2W_vAg">its own YouTube channel</a> with weekly TA sessions, instructor sessions, workshops and a past-paper session every term.</p>
+      </div>
+    </section>
+
 </main>
 </div>
 
