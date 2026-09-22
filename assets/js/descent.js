@@ -138,6 +138,7 @@
     var dark = isDark();
     var ink = css("--ink") || "#000", ink2 = css("--ink-2") || "#333", page = css("--page") || "#fff";
     var small = cssW < 460;
+    var PF = css("--plot-font") || "'CMU Serif', serif";
     var fs = small ? 10 : 12;
     c.fillStyle = page; c.fillRect(0, 0, cssW, cssH);
 
@@ -150,7 +151,7 @@
 
     /* spines and ticks */
     c.strokeStyle = ink; c.lineWidth = 1; c.strokeRect(M.l + 0.5, M.t + 0.5, plotW - 1, plotH - 1);
-    c.fillStyle = ink; c.font = fs + "px 'CMU Serif', serif"; c.textAlign = "center"; c.textBaseline = "top";
+    c.fillStyle = ink; c.font = fs + "px " + PF; c.textAlign = "center"; c.textBaseline = "top";
     for (var x = -3; x <= 3; x++) {
       var X = Math.round(sx(x)) + 0.5;
       c.beginPath(); c.moveTo(X, M.t + plotH); c.lineTo(X, M.t + plotH + 4); c.stroke();
@@ -162,7 +163,7 @@
       c.beginPath(); c.moveTo(M.l - 4, Y); c.lineTo(M.l, Y); c.stroke();
       c.fillText(y < 0 ? "−" + (-y) : String(y), M.l - 6, Y);
     }
-    c.font = "italic " + (fs + 1) + "px 'CMU Serif', serif";
+    c.font = "italic " + (fs + 1) + "px " + PF;
     c.textAlign = "center"; c.textBaseline = "alphabetic";
     c.fillText("w₁", M.l + plotW / 2, cssH - 3);
     c.save(); c.translate(small ? 9 : 12, M.t + plotH / 2); c.rotate(-Math.PI / 2); c.fillText("w₂", 0, 0); c.restore();
@@ -174,14 +175,14 @@
       c.fillRect(cbX, M.t + p, cbW, 1.2);
     }
     c.strokeStyle = ink; c.strokeRect(cbX + 0.5, M.t + 0.5, cbW - 1, plotH - 1);
-    c.fillStyle = ink; c.font = fs + "px 'CMU Serif', serif"; c.textAlign = "left"; c.textBaseline = "middle";
+    c.fillStyle = ink; c.font = fs + "px " + PF; c.textAlign = "left"; c.textBaseline = "middle";
     [-1, 0, 1].forEach(function (L) {
       var yy = M.t + (1 - (L - lo) / (hi - lo)) * plotH;
       c.beginPath(); c.moveTo(cbX + cbW, yy); c.lineTo(cbX + cbW + 3, yy); c.stroke();
       c.fillText(L < 0 ? "−" + (-L) : String(L), cbX + cbW + 5, yy);
     });
     c.save(); c.translate(cssW - 4, M.t + plotH / 2); c.rotate(-Math.PI / 2);
-    c.font = "italic " + fs + "px 'CMU Serif', serif"; c.textAlign = "center"; c.textBaseline = "bottom";
+    c.font = "italic " + fs + "px " + PF; c.textAlign = "center"; c.textBaseline = "bottom";
     c.fillText("loss", 0, 0); c.restore();
 
     /* basin labels: an x marker at each minimum, like plt.plot(..., "x") */
@@ -189,7 +190,7 @@
       var X = sx(w.mx), Y = sy(w.my), r = small ? 4 : 5;
       c.strokeStyle = css(w.c) || "#000"; c.lineWidth = 2;
       c.beginPath(); c.moveTo(X - r, Y - r); c.lineTo(X + r, Y + r); c.moveTo(X + r, Y - r); c.lineTo(X - r, Y + r); c.stroke();
-      c.font = "bold " + (fs + 1) + "px 'CMU Serif', serif"; c.textAlign = "left"; c.textBaseline = "bottom";
+      c.font = "bold " + (fs + 1) + "px " + PF; c.textAlign = "left"; c.textBaseline = "bottom";
       c.lineWidth = 3.5; c.strokeStyle = page; c.lineJoin = "round";
       c.strokeText(w.k, X + r + 3, Y - 2); c.fillStyle = ink; c.fillText(w.k, X + r + 3, Y - 2);
     });
@@ -204,7 +205,7 @@
       c.fillStyle = css("--c-run") || "#d62728"; c.beginPath(); c.arc(lx + 22, ly + 14, 2.2, 0, 7); c.fill();
       c.strokeStyle = ink2; c.lineWidth = 1.6;
       c.beginPath(); c.moveTo(lx + 18, ly + 27); c.lineTo(lx + 26, ly + 35); c.moveTo(lx + 26, ly + 27); c.lineTo(lx + 18, ly + 35); c.stroke();
-      c.fillStyle = ink; c.font = "12px 'CMU Serif', serif"; c.textAlign = "left"; c.textBaseline = "middle";
+      c.fillStyle = ink; c.font = "12px " + PF; c.textAlign = "left"; c.textBaseline = "middle";
       c.fillText("gradient descent", lx + 42, ly + 14);
       c.fillText("local minimum", lx + 42, ly + 31);
     }

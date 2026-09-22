@@ -178,5 +178,21 @@
     var re = function () { drawPlot(TERMS[term]); };
     if (mq.addEventListener) mq.addEventListener("change", re); else if (mq.addListener) mq.addListener(re);
   }
+  /* the next event across all terms, for the website's corner ticket */
+  window.convergeNext = function () {
+    var t0 = today().getTime(), keys = Object.keys(TERMS);
+    for (var k = 0; k < keys.length; k++) {
+      var ev = TERMS[keys[k]];
+      for (var i = 0; i < ev.length; i++) {
+        var e = ev[i];
+        if (e.row === 0) continue;
+        if (d(e.to || e.from).getTime() >= t0) {
+          return { what: e.what, days: Math.round((d(e.from).getTime() - t0) / DAY), date: fmtDay(d(e.from)), term: keys[k] };
+        }
+      }
+    }
+    return null;
+  };
+
   render();
 })();
