@@ -4,6 +4,27 @@ Newest entry at the top. Rules: `CLAUDE.md`. Sources: `docs/sources.md`.
 
 ---
 
+## 2026-09-22 (later): the website edition
+
+**Angad:** "mast si site bana … website … ye pdf wala ak backup ab na new wali … mast si bnao site jese ki meri ye
+site h" + the TDS Field Guide link. He liked the TDS guide's format and wanted a real website, not the PDF look.
+
+**Done:**
+- Paper edition kept: git tag `v1-paper`, moved to `/paper/` (asset paths now `../assets/`). Linked from the header
+  ("Paper edition") and the footer.
+- New root website in the TDS guide's grammar with its own ML identity (see CLAUDE.md rule 2). Same verified content,
+  rewritten for the web: 12 chapters (three courses as cards, order + diagram + plans, readiness check, MLF, MLT with
+  the five-components table, MLP with OPPE outcomes, project, assessments + eligibility check, calculator, resource
+  cards, 22 doubts, glossary + closing slab). Hero figure = the live gradient descent; the term chart shows Sep 2026 /
+  Jan 2027 / May 2027 with a countdown; a lime corner ticket shows the next exam after the hero.
+- Shared JS reused by both editions. `descent.js` now reads `--plot-font`; `calendar.js` exposes `convergeNext()`.
+- Fixed by looking: the headline highlight covering "you" on the line above (marker now starts below the cap line),
+  margin notes squeezed into the text (specificity), phone calendar labels colliding (short labels), a loud empty
+  state in the calculator.
+- `tests/check.mjs` now checks both editions (layout ×12 each, site behaviour, paper structure): ALL PASSED locally.
+
+---
+
 ## 2026-09-22: Built and shipped in one session
 
 **Brief (Angad, Hinglish):** like the TDS site, make one for MLF, MLT and MLP together; a unique theme, not the TDS
