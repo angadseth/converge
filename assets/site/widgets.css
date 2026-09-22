@@ -113,3 +113,5 @@ table.cal__table td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--ru
 .ticket__x { width: 30px; border: 0; border-left: 1.5px dashed var(--lime-ink); background: transparent; color: var(--lime-ink); font-size: 16px; line-height: 1; }
 @media (prefers-reduced-motion: reduce) { .ticket { transition: none; } }
 @media print { .ticket, .top, .toc, .toc-m { display: none !important; } }
+/* before an end term score is typed, the prompt reads as a hint, not a headline */
+.calc__total:not(:has(var)) { font-family: var(--ui); font-weight: 400; font-size: 16px; color: var(--ink-2); letter-spacing: 0; }
