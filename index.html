@@ -383,6 +383,95 @@
   <p class="sheet__folio">4</p>
 </article>
 
+<!-- ============================ PAGE 5: MLT ============================ -->
+<article class="sheet" id="p5">
+  <div class="sheet__head" aria-hidden="true"><span>On the Convergence of Students</span><span>Machine Learning Techniques</span></div>
+
+  <h2 class="sec" id="mlt"><span class="sec__n">5</span><span><span class="sw sw--mlt" aria-hidden="true"></span>Machine Learning Techniques (MLT)</span></h2>
+  <div class="prose">
+    <p>MLT is taught by Arun Rajkumar. Its stated aim is &ldquo;to introduce the main methods and models used in machine learning problems of regression, classification and clustering&rdquo; and to study &ldquo;their suitability for different problems&rdquo; <a class="cite" href="#ref-2">[2]</a>. The lectures run as one numbered sequence, L1 to L74, about 27 hours in all <a class="cite" href="#ref-10">[10]</a>. It is the course where the diploma's maths becomes algorithms you can explain, and it is the course the MLP Project viva draws on most.</p>
+  </div>
+
+  <h3 class="subsec" id="mlt-weeks"><span class="subsec__n">5.1</span><span>The twelve weeks</span></h3>
+  <div class="tbl" id="tab-mlt">
+    <p class="tbl__cap"><b>Table 6:</b> MLT week by week, from the course page <a class="cite" href="#ref-2">[2]</a>. The lecture ranges are my grouping of the playlist's titles <a class="cite" href="#ref-10">[10]</a>; the playlist has no week labels.</p>
+    <div class="tbl__wrap">
+      <table class="bt bt--weeks">
+        <thead><tr><th class="num">Wk</th><th>Topics</th><th>Lectures</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Unsupervised learning: representation learning, PCA</td><td>L1&ndash;L9</td></tr>
+          <tr><td class="num">2</td><td>Kernel PCA</td><td>L10&ndash;L12</td></tr>
+          <tr><td class="num">3</td><td>Clustering: K-means and kernel K-means</td><td>L13&ndash;L18</td></tr>
+          <tr><td class="num">4</td><td>Estimation: MLE, Bayesian estimation, Gaussian mixtures and EM</td><td>L19&ndash;L26</td></tr>
+          <tr><td class="num">5</td><td>Regression: least squares and its Bayesian view</td><td>L27&ndash;L35</td></tr>
+          <tr><td class="num">6</td><td>Ridge and LASSO</td><td>L36&ndash;L40</td></tr>
+          <tr><td class="num">7</td><td>Classification: k-nearest neighbours, decision trees</td><td>L41&ndash;L44</td></tr>
+          <tr><td class="num">8</td><td>Generative models: Naive Bayes</td><td>L45&ndash;L51</td></tr>
+          <tr><td class="num">9</td><td>Discriminative models: perceptron, logistic regression</td><td>L52&ndash;L56</td></tr>
+          <tr><td class="num">10</td><td>Support vector machines</td><td>L57&ndash;L65</td></tr>
+          <tr><td class="num">11</td><td>Ensembles: bagging and boosting (AdaBoost)</td><td>L66&ndash;L71</td></tr>
+          <tr><td class="num">12</td><td>Neural networks; multiclass classification</td><td>L72&ndash;L74</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="subsec" id="mlt-five"><span class="subsec__n">5.2</span><span>The one habit: five components for every algorithm</span></h3>
+  <div class="prose">
+    <p>For every method, be able to say five things: what <b>data</b> it expects, what <b>model</b> (family of functions) it can represent, what <b>loss</b> it minimises, how it is <b>trained</b>, and how it is <b>evaluated</b>. This is not my framing; it is the exact list the MLP Project's Level&nbsp;2 viva asks for, for &ldquo;every machine learning model that you have learnt and/or used&rdquo; <a class="cite" href="#ref-6">[6]</a>. MLT is where you practise it. Table&nbsp;<a href="#tab-five">7</a> is a start; write your own, in your own words, as the course goes.</p>
+  </div>
+
+  <div class="tbl" id="tab-five">
+    <p class="tbl__cap"><b>Table 7:</b> The MLT algorithms in the five-component frame. Data is omitted where it is just labelled points; evaluation is accuracy for classifiers and squared error for regressors unless noted.</p>
+    <div class="tbl__wrap">
+      <table class="bt bt--rows bt--stack bt--five">
+        <thead><tr><th>Method</th><th>Model</th><th>Loss or objective</th><th>Trained by</th></tr></thead>
+        <tbody>
+          <tr><td>PCA</td><td data-l="Model">Projection onto the top <var>k</var> eigenvectors of the covariance</td><td data-l="Loss">Reconstruction error (equivalently, maximise variance)</td><td data-l="Trained by">Eigendecomposition</td></tr>
+          <tr><td>Kernel PCA</td><td data-l="Model">PCA in a feature space given by a kernel</td><td data-l="Loss">Same, in feature space</td><td data-l="Trained by">Eigendecomposition of the kernel matrix</td></tr>
+          <tr><td>K-means</td><td data-l="Model"><var>k</var> centroids; each point goes to the nearest</td><td data-l="Loss">Within-cluster sum of squared distances</td><td data-l="Trained by">Lloyd's algorithm: assign, then update, repeat</td></tr>
+          <tr><td>Gaussian mixture</td><td data-l="Model">Weighted sum of <var>k</var> Gaussians</td><td data-l="Loss">Negative log-likelihood</td><td data-l="Trained by">EM</td></tr>
+          <tr><td>Linear regression</td><td data-l="Model"><var>w</var><sup>&#8868;</sup><var>x</var></td><td data-l="Loss">Squared error</td><td data-l="Trained by">Normal equations, or gradient descent</td></tr>
+          <tr><td>Ridge / LASSO</td><td data-l="Model"><var>w</var><sup>&#8868;</sup><var>x</var></td><td data-l="Loss">Squared error + &lambda;&#8214;<var>w</var>&#8214;<sub>2</sub><sup>2</sup> / + &lambda;&#8214;<var>w</var>&#8214;<sub>1</sub></td><td data-l="Trained by">Closed form (ridge); subgradient methods (LASSO)</td></tr>
+          <tr><td>k-NN</td><td data-l="Model">Vote of the <var>k</var> nearest training points</td><td data-l="Loss">None; nothing is fitted</td><td data-l="Trained by">Store the data</td></tr>
+          <tr><td>Decision tree</td><td data-l="Model">Axis-aligned splits into regions</td><td data-l="Loss">Impurity (entropy or Gini) at each split</td><td data-l="Trained by">Greedy splitting</td></tr>
+          <tr><td>Naive Bayes</td><td data-l="Model">Features independent given the class</td><td data-l="Loss">Likelihood</td><td data-l="Trained by">Counting (MLE), with Laplace smoothing</td></tr>
+          <tr><td>Perceptron</td><td data-l="Model">sign(<var>w</var><sup>&#8868;</sup><var>x</var>)</td><td data-l="Loss">Number of mistakes</td><td data-l="Trained by">Update <var>w</var> on each mistake</td></tr>
+          <tr><td>Logistic regression</td><td data-l="Model">&sigma;(<var>w</var><sup>&#8868;</sup><var>x</var>), a probability</td><td data-l="Loss">Log loss</td><td data-l="Trained by">Gradient descent</td></tr>
+          <tr><td>SVM</td><td data-l="Model">sign(<var>w</var><sup>&#8868;</sup><var>x</var> + <var>b</var>) with the widest margin</td><td data-l="Loss">Hinge loss + &#8214;<var>w</var>&#8214;<sup>2</sup></td><td data-l="Trained by">The dual problem; kernels for non-linear data</td></tr>
+          <tr><td>Bagging, random forest</td><td data-l="Model">Average of trees on bootstrap samples</td><td data-l="Loss">Each tree's own</td><td data-l="Trained by">Train the trees independently</td></tr>
+          <tr><td>AdaBoost</td><td data-l="Model">Weighted vote of weak learners</td><td data-l="Loss">Exponential loss</td><td data-l="Trained by">Reweight the misclassified points each round</td></tr>
+          <tr><td>Neural network</td><td data-l="Model">Layers of weighted sums and non-linearities</td><td data-l="Loss">Cross-entropy or squared error</td><td data-l="Trained by">Backpropagation and gradient descent</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="subsec" id="mlt-books"><span class="subsec__n">5.3</span><span>Books and notes</span></h3>
+  <div class="prose">
+    <p>The course page prescribes three books: Duda, Hart and Stork's <i>Pattern Classification</i> <a class="cite" href="#ref-27">[27]</a>, Bishop's <i>Pattern Recognition and Machine Learning</i> <a class="cite" href="#ref-24">[24]</a>, and Hastie, Tibshirani and Friedman's <i>The Elements of Statistical Learning</i> <a class="cite" href="#ref-25">[25]</a> <a class="cite" href="#ref-2">[2]</a>. The last two are free from their authors. Bishop lines up well with the course: linear regression is his Chapter&nbsp;3, linear classifiers Chapter&nbsp;4, neural networks Chapter&nbsp;5, SVMs Chapter&nbsp;7, mixtures and EM Chapter&nbsp;9, PCA Chapter&nbsp;12 and boosting Chapter&nbsp;14.</p>
+    <p>If those feel heavy, <i>An Introduction to Statistical Learning</i> <a class="cite" href="#ref-26">[26]</a> is the gentle version of ESL, and Stanford's CS229 notes <a class="cite" href="#ref-28">[28]</a> derive most of the same algorithms in a few pages each. Closest of all to the course are the notes written for it: the MLT notes on the programme's GitHub <a class="cite" href="#ref-19">[19]</a> and a second set of weekly MLT notes <a class="cite" href="#ref-20">[20]</a>.</p>
+  </div>
+
+  <h3 class="subsec" id="mlt-marks"><span class="subsec__n">5.4</span><span>How MLT is marked</span></h3>
+  <div class="prose">
+    <p class="noindent">MLT uses the same formula as MLF <a class="cite" href="#ref-5">[5]</a>:</p>
+  </div>
+  <div class="eq" id="eq-2">
+    <div class="eq__body math"><var>T</var> = 0.05&thinsp;<var>GAA</var> + max(&thinsp;0.6&thinsp;<var>F</var> + 0.25&thinsp;max(<var>Qz</var><sub>1</sub>,&thinsp;<var>Qz</var><sub>2</sub>),&ensp;0.4&thinsp;<var>F</var> + 0.25&thinsp;<var>Qz</var><sub>1</sub> + 0.3&thinsp;<var>Qz</var><sub>2</sub>&thinsp;)</div>
+    <div class="eq__n">(2)</div>
+  </div>
+  <div class="prose">
+    <p class="noindent">with the same <var>GAA</var> (best 10 of Weeks 1&ndash;10 and Mock Quiz&nbsp;1) and the same end term eligibility as Proposition&nbsp;<a href="#prop-elig">2</a>. MLT adds one thing: a bonus of 3 marks for submitting the programming assignments, if the average of all your assignments is at least 40 <a class="cite" href="#ref-5">[5]</a>. Like every bonus in the programme, it is added only if you pass, and it can lift your grade but not turn a fail into a pass.</p>
+  </div>
+
+  <div class="remark">
+    <p><span class="remark__h">Remark 5.1 (live sessions).</span> The MLT course team runs its own YouTube channel with TA sessions for each week, instructor sessions, workshops and a past-paper session every term <a class="cite" href="#ref-13">[13]</a>.</p>
+  </div>
+
+  <p class="sheet__folio">5</p>
+</article>
+
 </main>
 
 <footer class="colophon">
