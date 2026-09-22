@@ -286,3 +286,30 @@ table.bt--res td:first-child { width: 38%; }
 .refs__intro { margin: 0 0 0.6em; font-size: 0.86em; color: var(--ink-2); }
 .refs a { color: var(--link); }
 .refs li:target { background: var(--fill); }
+
+/* ---------- Appendix A: doubts ---------- */
+.faq-search { display: flex; align-items: center; gap: 12px; margin: 0 0 10px; }
+.faq-search input {
+  flex: 1; min-width: 0; padding: 6px 8px; border: 0; border-bottom: 1px solid var(--ink);
+  background: var(--fill); color: var(--ink); font-family: var(--serif); font-size: 0.95em; border-radius: 0;
+}
+.faq-count { font-size: 0.85em; font-style: italic; color: var(--ink-2); white-space: nowrap; }
+.faq details { border-top: 1px solid var(--hair); }
+.faq details:last-child { border-bottom: 1px solid var(--hair); }
+.faq summary {
+  display: grid; grid-template-columns: 3em 1fr auto; gap: 4px; align-items: baseline;
+  padding: 7px 2px; cursor: pointer; list-style: none; font-weight: 700;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-weight: 400; color: var(--ink-2); }
+.faq details[open] summary::after { content: "\2212"; }
+.faq__n { font-weight: 400; color: var(--ink-2); font-variant-numeric: lining-nums; }
+.faq details p { margin: 0 0 10px 3em; font-size: 0.95em; text-align: justify; hyphens: auto; }
+.faq-empty { font-style: italic; color: var(--ink-2); }
+@media (max-width: 560px) { .faq details p { margin-left: 0; text-align: left; } .faq summary { grid-template-columns: 2.6em 1fr auto; } }
+
+/* ---------- Appendix B: glossary ---------- */
+.gloss { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; font-size: 0.95em; }
+.gloss dt { font-weight: 700; }
+.gloss dd { margin: 0; text-align: justify; hyphens: auto; }
+@media (max-width: 560px) { .gloss { grid-template-columns: 1fr; gap: 0; } .gloss dd { margin-bottom: 8px; text-align: left; } }

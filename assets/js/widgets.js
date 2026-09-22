@@ -1,4 +1,4 @@
-/* Small interactive pieces: readiness check, eligibility check. Everything stays in this browser. */
+/* Small interactive pieces: readiness check, eligibility check, doubts search. Everything stays in this browser. */
 (function () {
   "use strict";
 
@@ -86,5 +86,31 @@
     elig.addEventListener("input", update);
     elig.addEventListener("change", update);
     update();
+  }
+
+  /* ---------- Appendix A: search the doubts ---------- */
+  var q = document.getElementById("faq-q");
+  var faq = document.getElementById("faq");
+  if (q && faq) {
+    var items = Array.prototype.slice.call(faq.querySelectorAll("details"));
+    var count = document.getElementById("faq-count");
+    var empty = document.getElementById("faq-empty");
+    var norm = function (t) { return t.toLowerCase().replace(/\s+/g, " "); };
+    var texts = items.map(function (d) { return norm(d.textContent); });
+    var filter = function () {
+      var words = norm(q.value).trim().split(" ").filter(Boolean);
+      var shown = 0;
+      items.forEach(function (d, i) {
+        var hit = words.every(function (w) { return texts[i].indexOf(w) !== -1; });
+        d.hidden = !hit;
+        if (hit) shown++;
+        if (words.length && hit && shown <= 3) d.open = true;
+        if (!words.length) d.open = false;
+      });
+      count.textContent = words.length ? shown + " of " + items.length : items.length + " doubts";
+      empty.hidden = shown !== 0;
+    };
+    q.addEventListener("input", filter);
+    filter();
   }
 })();
