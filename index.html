@@ -225,6 +225,128 @@
       </div>
     </section>
 
+    <!-- ======================= 02 ======================= -->
+    <section class="chapter" id="order">
+      <div class="chapter__head"><span class="chapter__n">02</span><h2>Which order to take them</h2></div>
+      <div class="body">
+        <p class="lead">There is only one hard rule: <mark>MLT before MLP</mark>. Everything else can share a term.</p>
+        <div class="rule">
+          <span class="rule__tag">Rule</span>
+          <p class="rule__text">MLF is a co-requisite of MLT: take it before MLT or in the same term. MLT is a prerequisite of MLP: finish it first. MLP is a co-requisite of the MLP Project and of Tools in Data Science.</p>
+          <p class="rule__src">Source: requisites table, <a href="https://docs.google.com/document/d/e/2PACX-1vT5PBOz4OH663W0IJPVGVjG_nfmYZGfFI7W1j-6wTLcex13O_7BZmf6a96Q6liO0W-mLZB5hOGZeNNl/pub">grading document</a>, May 2026. The MLP course page lists MLF and MLT both as prerequisites; the grading document is newer.</p>
+        </div>
+      </div>
+
+      <figure class="panel" id="fig-requisites">
+        <svg class="dag" viewBox="0 0 480 214" role="img" aria-labelledby="fig2-t">
+          <title id="fig2-t">MLF is a co-requisite of MLT. MLT is a prerequisite of MLP. MLP is a co-requisite of the MLP Project and of TDS.</title>
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" style="fill: var(--ink)"/>
+            </marker>
+          </defs>
+          <g style="stroke: var(--ink); fill: none" stroke-width="1.4">
+            <path d="M72 106 H126" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+            <path d="M204 106 H258" marker-end="url(#arr)"/>
+            <path d="M336 96 C350 96 352 58 364 58" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+            <path d="M336 116 C350 116 352 154 364 154" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+          </g>
+          <g style="fill: var(--ink-2); font-family: var(--mono)" font-size="11" text-anchor="middle">
+            <text x="99" y="96">co-req</text>
+            <text x="231" y="96">prereq</text>
+            <text x="340" y="44">co-req</text>
+            <text x="340" y="180">co-req</text>
+          </g>
+          <g font-size="16" font-weight="800" text-anchor="middle" style="font-family: var(--display)">
+            <rect x="2" y="86" width="70" height="40" style="fill: var(--card); stroke: var(--c-mlf)" stroke-width="2.4"/>
+            <text x="37" y="112" style="fill: var(--ink)">MLF</text>
+            <rect x="132" y="86" width="72" height="40" style="fill: var(--card); stroke: var(--c-mlt)" stroke-width="2.4"/>
+            <text x="168" y="112" style="fill: var(--ink)">MLT</text>
+            <rect x="264" y="86" width="72" height="40" style="fill: var(--card); stroke: var(--c-mlp)" stroke-width="2.4"/>
+            <text x="300" y="112" style="fill: var(--ink)">MLP</text>
+            <rect x="370" y="38" width="108" height="40" style="fill: var(--card); stroke: var(--c-proj)" stroke-width="2.4"/>
+            <text x="424" y="64" style="fill: var(--ink)" font-size="14.5">MLP Project</text>
+            <rect x="370" y="134" width="108" height="40" style="fill: var(--card); stroke: var(--ink-3)" stroke-width="1.6"/>
+            <text x="424" y="160" style="fill: var(--ink)">TDS</text>
+          </g>
+          <g font-size="11.5" style="fill: var(--ink-2); font-family: var(--mono)">
+            <path d="M4 204 H34" style="stroke: var(--ink)" stroke-width="1.4" marker-end="url(#arr)"/>
+            <text x="42" y="208">must come first</text>
+            <path d="M178 204 H208" style="stroke: var(--ink)" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+            <text x="216" y="208">same term is fine</text>
+          </g>
+        </svg>
+        <figcaption class="panel__cap">What depends on what, from the grading document.</figcaption>
+      </figure>
+
+      <div class="body">
+        <h3>The official study plans</h3>
+        <p>The grading document gives its own plans for someone doing only the Data Science diploma. Here are the three that use the Business Analytics track; the Deep Learning track swaps BA for the Deep Learning and Generative AI course and its project. All three agree: MLF first, MLP after MLT, and TDS in the same term as MLP.</p>
+      </div>
+      <div class="tbl wide">
+        <table class="ledger ledger--stack">
+          <thead><tr><th>Plan</th><th>Term 1</th><th>Term 2</th><th>Term 3</th><th>Term 4</th></tr></thead>
+          <tbody>
+            <tr><td>2 terms<br><span class="aside">"not recommended unless you have some background"</span></td><td data-l="Term 1"><b>MLF, MLT</b>, BDM, BDM project</td><td data-l="Term 2"><b>MLP</b>, BA, TDS, <b>MLP project</b></td><td data-l="Term 3" class="muted">&ndash;</td><td data-l="Term 4" class="muted">&ndash;</td></tr>
+            <tr><td>3 terms<br><span class="aside">"moderate pathway"</span></td><td data-l="Term 1"><b>MLF</b>, BDM, BDM project</td><td data-l="Term 2"><b>MLT</b>, BA</td><td data-l="Term 3"><b>MLP</b>, TDS, <b>MLP project</b></td><td data-l="Term 4" class="muted">&ndash;</td></tr>
+            <tr><td>4 terms<br><span class="aside">"extremely comfortable and relaxed"</span></td><td data-l="Term 1"><b>MLF</b>, BDM</td><td data-l="Term 2"><b>MLT</b>, BDM project</td><td data-l="Term 3"><b>MLP</b>, TDS</td><td data-l="Term 4">BA, <b>MLP project</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="body">
+        <h3>Two things nobody tells you</h3>
+        <p class="note">Week 4 of MLF is eigenvalues. Watch it in your first week of MLT.</p>
+        <p><b>MLF and MLT together, the most common pairing, starts out of sync.</b> MLT opens with PCA in Week&nbsp;1. The MLF lectures only reach eigenvalues in Week&nbsp;4 and PCA in Week&nbsp;7. For about a month MLT uses maths that MLF has not taught you yet. Watch the MLF eigenvalue lectures early, or 3Blue1Brown's short chapter on eigenvectors, and the gap closes.</p>
+        <p><b>MLP and its project in the same term is allowed, but the guideline warns against it:</b> "If you are new to ML, you should complete the MLP course in one term and the MLP project in a later term." The project's milestones don't follow the course's week order, so you would be learning some topics before the lectures reach them.</p>
+      </div>
+    </section>
+
+    <!-- ======================= 03 ======================= -->
+    <section class="chapter" id="before">
+      <div class="chapter__head"><span class="chapter__n">03</span><h2>Before you start</h2></div>
+      <div class="body">
+        <p class="lead">None of the three courses teaches its prerequisites again. MLF opens with one week of calculus and then goes straight to subspaces. MLP opens with pandas and assumes you can already write Python.</p>
+      </div>
+      <div class="tbl wide">
+        <table class="ledger ledger--stack">
+          <thead><tr><th>Be comfortable with</th><th>Learned in</th><th>First needed in</th></tr></thead>
+          <tbody>
+            <tr><td>Matrices, matrix products, solving <i>Ax</i> = <i>b</i></td><td data-l="Learned in">Maths 1 and 2</td><td data-l="Needed in">MLF Week 3, MLT Week 1</td></tr>
+            <tr><td>Derivatives, partial derivatives, the gradient</td><td data-l="Learned in">Maths 1 and 2</td><td data-l="Needed in">MLF Week 2, every loss in MLT</td></tr>
+            <tr><td>Eigenvalues of a small matrix</td><td data-l="Learned in">Maths 2</td><td data-l="Needed in">MLT Week 1, MLF Week 4</td></tr>
+            <tr><td>Probability, expectation, the normal distribution</td><td data-l="Learned in">Stats 1 and 2</td><td data-l="Needed in">MLT Week 4, MLF Weeks 10&ndash;12</td></tr>
+            <tr><td>Python functions, loops, lists, dictionaries</td><td data-l="Learned in">Python</td><td data-l="Needed in">MLP Week 1, MLT programming assignments</td></tr>
+            <tr><td>Reading and filtering a table in pandas</td><td data-l="Learned in">Your own practice</td><td data-l="Needed in">MLP Week 1 (the whole week is pandas)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="body">
+        <h3>Ten-line readiness check</h3>
+        <p>Tick what is true today. It stays on this device only.</p>
+      </div>
+      <form class="check" id="readiness" aria-describedby="ready-out" onsubmit="return false">
+        <p class="check__cap">Readiness check</p>
+        <ol class="check__list">
+          <li><label><input type="checkbox" name="r1"> <span>I can multiply two matrices by hand and say when the product is defined.</span></label></li>
+          <li><label><input type="checkbox" name="r2"> <span>I can find the eigenvalues of a 2&times;2 matrix.</span></label></li>
+          <li><label><input type="checkbox" name="r3"> <span>I can take the partial derivatives of <i>f</i>(<i>x</i>, <i>y</i>) = <i>x</i>&sup2;<i>y</i> + 3<i>y</i>.</span></label></li>
+          <li><label><input type="checkbox" name="r4"> <span>I know what a gradient is and which way it points.</span></label></li>
+          <li><label><input type="checkbox" name="r5"> <span>I can compute the mean and variance of a small dataset by hand.</span></label></li>
+          <li><label><input type="checkbox" name="r6"> <span>I know the difference between a probability mass function and a density.</span></label></li>
+          <li><label><input type="checkbox" name="r7"> <span>I have written a Python function with a loop and an <code>if</code> in it.</span></label></li>
+          <li><label><input type="checkbox" name="r8"> <span>I can load a CSV into pandas and keep only the rows I want.</span></label></li>
+          <li><label><input type="checkbox" name="r9"> <span>I can run a Colab or Jupyter notebook from top to bottom.</span></label></li>
+          <li><label><input type="checkbox" name="r10"> <span>I have decided which courses to pair this term (chapter 02).</span></label></li>
+        </ol>
+        <p class="check__out" id="ready-out" aria-live="polite"></p>
+      </form>
+      <div class="body">
+        <p><b>Fixing the gaps.</b> For the maths lines, 3Blue1Brown's <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of Linear Algebra</a> and <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of Calculus</a> are the fastest way back in. For probability, <a href="https://seeing-theory.brown.edu/">Seeing Theory</a>. For pandas, the free course on <a href="https://www.kaggle.com/learn">Kaggle Learn</a> takes an evening.</p>
+      </div>
+    </section>
+
 </main>
 </div>
 
