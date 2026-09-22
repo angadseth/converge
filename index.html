@@ -687,6 +687,42 @@
       </div>
     </section>
 
+    <!-- ======================= 09 CALCULATOR ======================= -->
+    <section class="chapter" id="calc">
+      <div class="chapter__head"><span class="chapter__n">09</span><h2>Marks calculator</h2></div>
+      <div class="body">
+        <p class="lead">Pick a course, type what you know, and see your total, your grade and the end term score each grade needs.</p>
+        <p>It uses the exact formulas from chapters 04 to 07 and draws your total against the one score you don't know yet. Numbers stay in this browser.</p>
+      </div>
+      <figure class="panel calc" id="calc-fig" data-calc>
+        <div class="calc__tabs" role="tablist" aria-label="Course">
+          <button class="mpl-btn" role="tab" type="button" data-course="mlf" aria-selected="true">MLF</button>
+          <button class="mpl-btn" role="tab" type="button" data-course="mlt" aria-selected="false">MLT</button>
+          <button class="mpl-btn" role="tab" type="button" data-course="mlp" aria-selected="false">MLP</button>
+          <button class="mpl-btn" role="tab" type="button" data-course="proj" aria-selected="false">MLP Project</button>
+        </div>
+        <div class="calc__inputs" data-inputs></div>
+        <div class="calc__result" aria-live="polite">
+          <p class="calc__total" data-total></p>
+          <p class="calc__note" data-note></p>
+        </div>
+        <svg class="calc__plot" data-plot viewBox="0 0 624 280" role="img" aria-label="Total score plotted against the end term score, with grade bands"></svg>
+        <div class="calc__need">
+          <table data-need>
+            <thead><tr><th>Grade</th><th class="num">Total needed</th><th class="num" data-need-h>End term needed</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <figcaption class="panel__cap">Grade bands use the programme's usual scale: S 90, A 80, B 70, C 60, D 50, E 40 and above. Confirm them in your term's student handbook. Bonus marks are added only if you pass without them.</figcaption>
+      </figure>
+      <div class="body">
+        <div class="trap">
+          <span class="trap__h">Trap: 40 is not enough on its own</span>
+          <p>You also need end term eligibility (chapter 04), for MLP an OPPE score of 40 or more (chapter 06), and for the project a viva of 25 or more and a total of 50 (chapter 07). The calculator checks these too.</p>
+        </div>
+      </div>
+    </section>
+
 </main>
 </div>
 
