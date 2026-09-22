@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Converge: a field guide to MLF, MLT and MLP (IIT Madras BS)</title>
+<meta name="description" content="A senior's guide to Machine Learning Foundations, Machine Learning Techniques, Machine Learning Practice and the MLP Project in the IIT Madras BS Diploma in Data Science: week maps, grading formulas, a marks calculator, the term calendar and every resource worth opening.">
+<meta name="author" content="Angad Jangir">
+<meta name="theme-color" content="#323639">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Converge: a field guide to MLF, MLT and MLP">
+<meta property="og:description" content="Week maps, grading formulas, a marks calculator, the Sep 2026 calendar and every resource worth opening, for the IIT Madras BS machine learning courses.">
+<meta property="og:url" content="https://angadseth.github.io/converge/">
+<meta property="og:image" content="https://angadseth.github.io/converge/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/cmu-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cmu-serif-bold.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("converge.theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      var z = parseFloat(localStorage.getItem("converge.zoom"));
+      if (z >= 0.8 && z <= 1.4) document.documentElement.style.setProperty("--zoom", z);
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/paper.css">
+<link rel="stylesheet" href="assets/css/figures.css">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+</head>
+<body>
+<a class="skip" href="#p1">Skip to the guide</a>
+
+<header class="bar" role="toolbar" aria-label="Document viewer">
+  <div class="bar__left">
+    <button class="bar__btn" id="outline-btn" type="button" aria-controls="outline" aria-expanded="false" title="Contents">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <span class="sr-only">Contents</span>
+    </button>
+    <span class="bar__file">converge.pdf</span>
+  </div>
+  <div class="bar__mid">
+    <label class="bar__page">
+      <span class="sr-only">Page</span>
+      <input id="page-input" type="number" inputmode="numeric" min="1" value="1" aria-label="Go to page">
+      <span>/</span><span id="page-count">1</span>
+    </label>
+    <span class="bar__sep bar__sep--zoom" aria-hidden="true"></span>
+    <span class="bar__zoomset">
+      <button class="bar__btn" id="zoom-out" type="button" title="Smaller text">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 11h14v2H5z"/></svg>
+        <span class="sr-only">Smaller text</span>
+      </button>
+      <span class="bar__zoom" id="zoom-level" aria-live="polite">100%</span>
+      <button class="bar__btn" id="zoom-in" type="button" title="Larger text">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg>
+        <span class="sr-only">Larger text</span>
+      </button>
+    </span>
+  </div>
+  <div class="bar__right">
+    <button class="bar__btn" id="theme-btn" type="button" title="Theme: follows your device">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 2v14a7 7 0 0 1 0-14z"/></svg>
+      <span class="sr-only" id="theme-label">Theme: follows your device</span>
+    </button>
+    <button class="bar__btn" id="print-btn" type="button" title="Print or save as PDF">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10v4H7zM5 8h14a2 2 0 0 1 2 2v6h-4v4H7v-4H3v-6a2 2 0 0 1 2-2zm4 7v3h6v-3zm8-4.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+      <span class="sr-only">Print or save as PDF</span>
+    </button>
+  </div>
+  <span class="bar__progress" aria-hidden="true"></span>
+</header>
+
+<nav class="outline" id="outline" aria-label="Contents" hidden>
+  <p class="outline__title">Contents</p>
+  <ol id="outline-list"></ol>
+</nav>
+<div class="scrim" id="scrim" hidden></div>
+
+<main class="doc" id="doc">
+
+<!-- ============================ PAGE 1 ============================ -->
+<article class="sheet" id="p1" data-title="Title and abstract">
+  <p class="stamp" aria-hidden="true">converge:2609.00001v1 [iitm.ML] 22 Sep 2026</p>
+
+  <h1 class="title">On the Convergence of Students through MLF, MLT and MLP
+    <span class="title__sub">A senior's field guide to the machine learning courses of the IIT Madras BS Diploma in Data Science</span>
+  </h1>
+
+  <p class="authors">
+    <span class="authors__name">Angad Jangir</span><a class="fnref" href="#fn-author" id="fnref-author">*</a>
+    <span class="authors__aff">BS in Data Science and Applications, IIT Madras</span>
+    <a class="authors__mail" href="https://github.com/angadseth">github.com/angadseth</a>
+  </p>
+
+  <section class="abstract" aria-labelledby="abstract-h">
+    <h2 class="abstract__h" id="abstract-h">Abstract</h2>
+    <p>Three courses carry most of the Diploma in Data Science: Machine Learning Foundations (MLF), Machine Learning Techniques (MLT) and Machine Learning Practice (MLP), with the MLP Project run as a Kaggle competition. This guide explains what each course asks of you week by week, how the courses depend on each other, and exactly how each final score is computed, with every formula taken from the official grading document. It then gives a method for each kind of assessment (weekly assignments, quizzes, programming exams, Kaggle assignments, the project vivas and the end term), a marks calculator, the Sep 2026 term on one chart, and every resource I could open and check: the official lecture playlists (about 92 hours across the three courses), the course teams' notes, free textbooks and the best lectures elsewhere.</p>
+    <p>There are no answers to graded work here. Every rule cites its source, and when this guide and an official page disagree, the official page wins.</p>
+    <p class="keywords"><b>Keywords:</b> gradient descent, linear algebra, PCA, SVM, scikit-learn, OPPE, Kaggle, viva, end term.</p>
+  </section>
+
+  <figure class="fig fig--descent" id="fig-descent">
+    <div class="fig__box descent" data-descent>
+      <canvas class="descent__plot" width="624" height="360" role="img" aria-label="A contour plot of a loss surface with three basins labelled MLF, MLT and MLP. A red path runs downhill from a starting point to the lowest basin, MLP."></canvas>
+      <div class="descent__ctl">
+        <label class="slider"><span class="slider__lbl">learning rate <var>&eta;</var></span>
+          <input type="range" min="0.01" max="0.5" step="0.01" value="0.08" data-eta>
+          <output class="slider__val" data-eta-out>0.08</output></label>
+        <label class="slider"><span class="slider__lbl">momentum <var>&beta;</var></span>
+          <input type="range" min="0" max="0.95" step="0.05" value="0.8" data-beta>
+          <output class="slider__val" data-beta-out>0.80</output></label>
+        <div class="descent__btns">
+          <button class="mpl-btn" type="button" data-run>Run again</button>
+          <span class="descent__log" data-log aria-live="polite">Click the plot to choose a start.</span>
+        </div>
+      </div>
+    </div>
+    <figcaption class="fig__cap"><b>Figure 1:</b> Gradient descent on a loss surface, which is MLF Week 8 and, more or less, the whole diploma. Click or tap anywhere on the plot to start a new run from there. Raise the learning rate <var>&eta;</var> to see what rushing does: the run overshoots and can fly off the surface. Momentum <var>&beta;</var> is consistency: with it, the run rolls through the shallow basins instead of stopping in the first one.</figcaption>
+  </figure>
+
+  <div class="tbl" id="tab-glance">
+    <p class="tbl__cap"><b>Table 1:</b> The four courses at a glance. Sources: the course pages <a class="cite" href="#ref-1">[1]</a>&ndash;<a class="cite" href="#ref-4">[4]</a> and the grading document <a class="cite" href="#ref-5">[5]</a>.</p>
+    <div class="tbl__wrap">
+      <table class="bt bt--rows bt--stack">
+        <thead><tr><th>Course</th><th class="num">Credits</th><th>Taught by</th><th>What it is</th><th>How it is examined</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Course"><span class="sw sw--mlf" aria-hidden="true"></span><b>MLF</b> <span class="muted">BSCS2004</span></td><td class="num" data-l="Credits">4</td><td data-l="Taught by">Harish Guruprasad Ramaswamy, Arun Rajkumar, Prashanth L.A.</td><td data-l="What it is">The maths under ML: calculus, linear algebra, optimisation, probability</td><td data-l="Examined by">Weekly assignments, two quizzes and the end term, all but the assignments in person</td></tr>
+          <tr><td data-l="Course"><span class="sw sw--mlt" aria-hidden="true"></span><b>MLT</b> <span class="muted">BSCS2007</span></td><td class="num" data-l="Credits">4</td><td data-l="Taught by">Arun Rajkumar</td><td data-l="What it is">The algorithms, derived: PCA and clustering through SVMs and neural networks</td><td data-l="Examined by">Weekly assignments, two quizzes and the end term, all but the assignments in person</td></tr>
+          <tr><td data-l="Course"><span class="sw sw--mlp" aria-hidden="true"></span><b>MLP</b> <span class="muted">BSCS2008</span></td><td class="num" data-l="Credits">4</td><td data-l="Taught by">Ashish Tendulkar (Google Research)</td><td data-l="What it is">Doing all of it in Python with scikit-learn</td><td data-l="Examined by">Weekly assignments, two online proctored programming exams (OPPEs), three Kaggle assignments and the end term. No quizzes.</td></tr>
+          <tr><td data-l="Course"><span class="sw sw--proj" aria-hidden="true"></span><b>MLP Project</b> <span class="muted">BSCS2008P</span></td><td class="num" data-l="Credits">2</td><td data-l="Taught by">Ashish Tendulkar</td><td data-l="What it is">A Kaggle competition among students</td><td data-l="Examined by">A leaderboard cutoff, five milestones, then a Level 1 and a Level 2 viva</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footnotes" role="doc-endnotes">
+    <ol>
+      <li id="fn-author" value="0" class="fn-star">* I took these courses as a student of this programme: an S grade in MLT with 100/100 in the end term, and 11th of 2,593 on the Kaggle leaderboard of the MLP course's competition. This guide is not an official IIT Madras page. <a href="#fnref-author" aria-label="Back to the author note">&#8617;</a></li>
+    </ol>
+  </div>
+  <p class="sheet__folio">1</p>
+</article>
+
+</main>
+
+<footer class="colophon">
+  <p>Made by Angad Jangir</p>
+</footer>
+
+<script src="assets/js/viewer.js" defer></script>
+<script src="assets/js/descent.js" defer></script>
+</body>
+</html>
