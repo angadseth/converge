@@ -1,0 +1,26 @@
+/* Printing (or "Save as PDF") turns the page into the paper it pretends to be. */
+
+@page { size: A4; margin: 18mm 20mm; }
+
+:root, :root[data-theme="dark"] {
+  --page: #ffffff; --ink: #000000; --ink-2: #333333; --ink-3: #555555; --rule: #000000; --hair: #bbbbbb;
+  --fill: #f3f3f1; --link: #001473; --cite: #00701f;
+  --c-mlf: #1f77b4; --c-mlt: #ff7f0e; --c-mlp: #2ca02c; --c-proj: #9467bd; --c-run: #d62728;
+  --fs: 10.5pt; --zoom: 1;
+}
+
+html, body { background: #fff !important; }
+.bar, .outline, .scrim, .skip, .colophon, .descent__ctl, .no-print { display: none !important; }
+.doc { padding: 0; }
+.sheet {
+  max-width: none; margin: 0; padding: 0; box-shadow: none;
+  break-after: page;
+}
+.sheet:last-child { break-after: auto; }
+.stamp { position: static; transform: none; display: block; font-size: 9pt; text-align: center; margin: 0 0 8pt; }
+.sheet__head { margin: 0 0 10pt; }
+.fig, .tbl, .thm, .algo, .eq, .trap { break-inside: avoid; }
+.prose a[href^="http"]::after { content: " <" attr(href) ">"; font-family: var(--mono); font-size: 0.8em; word-break: break-all; }
+details { display: block; }
+details > summary { list-style: none; }
+details > *:not(summary) { display: block !important; }
