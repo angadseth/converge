@@ -1,0 +1,99 @@
+/* Converge website: colour and type tokens.
+   Sibling of the TDS Field Guide, with its own materials: plot paper (dots, not a grid),
+   viridis lime instead of a yellow highlighter, teal instead of a blue pen. */
+
+:root {
+  color-scheme: light;
+
+  --bg: #eef1ec;
+  --bg-dot: rgba(15, 118, 110, 0.17);
+  --card: #fbfcf9;
+  --ink: #111513;
+  --ink-2: #3c4541;
+  --ink-3: #69726d;
+  --rule: #cbd3cd;
+  --teal: #0f766e;
+  --teal-2: #0b5a54;
+  --lime: #c8ec4d;
+  --lime-ink: #111513;
+  --red: #c8322b;
+  --slab: #0d2522;
+  --slab-ink: #e8f2ed;
+  --slab-2: #9fb9b1;
+  --shadow: 0 1px 0 rgba(17, 21, 19, 0.06), 0 10px 30px -18px rgba(17, 21, 19, 0.35);
+
+  /* names the shared figure scripts read */
+  --page: var(--card);
+  --hair: var(--rule);
+  --fill: #e6ebe5;
+  --link: var(--teal);
+  --cite: var(--teal);
+  --c-mlf: #1f77b4;
+  --c-mlt: #e8750c;
+  --c-mlp: #2a9d3a;
+  --c-proj: #8d5fc0;
+  --c-run: #d62728;
+  --plot-font: "JetBrains Mono", ui-monospace, monospace;
+
+  --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --wrap: 1240px;
+  --gut: 32px;
+  --top-h: 58px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0e1312;
+    --bg-dot: rgba(95, 208, 192, 0.1);
+    --card: #141b19;
+    --ink: #e6ece8;
+    --ink-2: #b3beb9;
+    --ink-3: #84908a;
+    --rule: #28322f;
+    --teal: #5fd0c0;
+    --teal-2: #8fe3d6;
+    --red: #ff6b61;
+    --slab: #dcebe4;
+    --slab-ink: #0e1312;
+    --slab-2: #3e5751;
+    --shadow: 0 1px 0 rgba(0, 0, 0, 0.4), 0 10px 30px -18px rgba(0, 0, 0, 0.8);
+    --fill: #1b2321;
+    --c-mlf: #5ea8e2;
+    --c-mlt: #ffa24a;
+    --c-mlp: #5dcc5d;
+    --c-proj: #b99be2;
+    --c-run: #ff6b66;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e1312;
+  --bg-dot: rgba(95, 208, 192, 0.1);
+  --card: #141b19;
+  --ink: #e6ece8;
+  --ink-2: #b3beb9;
+  --ink-3: #84908a;
+  --rule: #28322f;
+  --teal: #5fd0c0;
+  --teal-2: #8fe3d6;
+  --red: #ff6b61;
+  --slab: #dcebe4;
+  --slab-ink: #0e1312;
+  --slab-2: #3e5751;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.4), 0 10px 30px -18px rgba(0, 0, 0, 0.8);
+  --fill: #1b2321;
+  --c-mlf: #5ea8e2;
+  --c-mlt: #ffa24a;
+  --c-mlp: #5dcc5d;
+  --c-proj: #b99be2;
+  --c-run: #ff6b66;
+}
+
+@media (max-width: 760px) {
+  :root { --gut: 16px; --top-h: 54px; }
+}
