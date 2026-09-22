@@ -1,0 +1,245 @@
+/* Converge: base layer. Fonts, colour tokens, the PDF-viewer shell. */
+
+@font-face { font-family: "CMU Serif"; src: url("../fonts/cmu-serif-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "CMU Serif"; src: url("../fonts/cmu-serif-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "CMU Serif"; src: url("../fonts/cmu-serif-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "CMU Serif"; src: url("../fonts/cmu-serif-bolditalic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "CMU Typewriter Text"; src: url("../fonts/cmu-typewriter.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+
+:root {
+  color-scheme: light;
+
+  /* the PDF viewer around the paper */
+  --viewer: #525659;
+  --bar: #323639;
+  --bar-ink: #f1f3f4;
+  --bar-ink-2: #bdc1c6;
+  --bar-hover: rgba(255, 255, 255, 0.12);
+  --bar-line: rgba(255, 255, 255, 0.14);
+  --sheet-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.28);
+
+  /* the paper itself: LaTeX prints true black on white */
+  --page: #ffffff;
+  --ink: #000000;
+  --ink-2: #333333;
+  --ink-3: #666666;
+  --rule: #000000;
+  --hair: #cccccc;
+  --fill: #f3f3f1;
+
+  /* hyperref colours: links in NeurIPS dark blue, citations in green */
+  --link: #001473;
+  --cite: #00701f;
+
+  /* matplotlib's tab10, one colour per course, used only in figures and legends */
+  --c-mlf: #1f77b4;
+  --c-mlt: #ff7f0e;
+  --c-mlp: #2ca02c;
+  --c-proj: #9467bd;
+  --c-run: #d62728;
+
+  --serif: "CMU Serif", "Latin Modern Roman", "Computer Modern Serif", "STIX Two Text", "Cambria Math", Cambria, Georgia, serif;
+  --mono: "CMU Typewriter Text", "Latin Modern Mono", ui-monospace, Consolas, monospace;
+  --ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --zoom: 1;
+  --fs: calc(19px * var(--zoom));
+  --bar-h: 48px;
+  --page-w: 816px;           /* US Letter at 96 dpi */
+  --page-pad-x: 96px;        /* one-inch margins */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --viewer: #2b2c2f;
+    --bar: #1d1e20;
+    --bar-ink: #e8eaed;
+    --bar-ink-2: #a8abb0;
+    --bar-hover: rgba(255, 255, 255, 0.1);
+    --bar-line: rgba(255, 255, 255, 0.1);
+    --sheet-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.5);
+    --page: #18191b;
+    --ink: #e6e3dc;
+    --ink-2: #c3c0b8;
+    --ink-3: #97948d;
+    --rule: #e6e3dc;
+    --hair: #3b3d41;
+    --fill: #212225;
+    --link: #a4b8ff;
+    --cite: #7fd49b;
+    --c-mlf: #5ea8e2;
+    --c-mlt: #ffa24a;
+    --c-mlp: #5dcc5d;
+    --c-proj: #b99be2;
+    --c-run: #ff6b66;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --viewer: #2b2c2f;
+  --bar: #1d1e20;
+  --bar-ink: #e8eaed;
+  --bar-ink-2: #a8abb0;
+  --bar-hover: rgba(255, 255, 255, 0.1);
+  --bar-line: rgba(255, 255, 255, 0.1);
+  --sheet-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.5);
+  --page: #18191b;
+  --ink: #e6e3dc;
+  --ink-2: #c3c0b8;
+  --ink-3: #97948d;
+  --rule: #e6e3dc;
+  --hair: #3b3d41;
+  --fill: #212225;
+  --link: #a4b8ff;
+  --cite: #7fd49b;
+  --c-mlf: #5ea8e2;
+  --c-mlt: #ffa24a;
+  --c-mlp: #5dcc5d;
+  --c-proj: #b99be2;
+  --c-run: #ff6b66;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--bar-h) + 16px);
+  background: var(--viewer);
+}
+
+body {
+  margin: 0;
+  background: var(--viewer);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--fs);
+  line-height: 1.5;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  overflow-x: hidden;
+}
+
+img, svg, canvas { display: block; max-width: 100%; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 2px; }
+
+.skip {
+  position: absolute; left: 8px; top: -60px; z-index: 50;
+  background: var(--page); color: var(--ink); padding: 8px 12px;
+  font-family: var(--ui); font-size: 14px; border-radius: 4px;
+}
+.skip:focus { top: 8px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- the viewer toolbar (looks like Chrome's PDF viewer) ---------- */
+
+.bar {
+  position: sticky; top: 0; z-index: 30;
+  height: var(--bar-h);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  background: var(--bar);
+  color: var(--bar-ink);
+  font-family: var(--ui);
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.bar__left, .bar__mid, .bar__right { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.bar__right { justify-content: flex-end; }
+.bar__file {
+  margin-left: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  color: var(--bar-ink); font-size: 14px;
+}
+.bar__sep { width: 1px; height: 20px; background: var(--bar-line); margin: 0 8px; }
+
+.bar__btn {
+  width: 36px; height: 36px; border: 0; border-radius: 50%;
+  display: inline-grid; place-items: center;
+  background: transparent; color: var(--bar-ink);
+}
+.bar__btn:hover { background: var(--bar-hover); }
+.bar__btn svg { width: 20px; height: 20px; }
+.bar__btn[aria-pressed="true"] { background: var(--bar-hover); }
+
+.bar__page { display: flex; align-items: center; gap: 6px; color: var(--bar-ink-2); white-space: nowrap; }
+.bar__page input {
+  width: 3ch; min-width: 34px; height: 26px; text-align: center;
+  background: rgba(0, 0, 0, 0.35); color: var(--bar-ink);
+  border: 0; border-radius: 3px; font-family: var(--ui); font-size: 14px;
+  -moz-appearance: textfield;
+}
+.bar__page input::-webkit-outer-spin-button,
+.bar__page input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.bar__zoom { min-width: 5ch; text-align: center; color: var(--bar-ink); }
+
+/* a thin reading-progress line under the bar */
+.bar__progress {
+  position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
+  transform-origin: 0 50%; transform: scaleX(var(--read, 0));
+  background: var(--bar-ink-2); opacity: 0.55;
+}
+
+@media (max-width: 700px) {
+  .bar { grid-template-columns: auto 1fr auto; }
+  .bar__file { display: none; }
+  .bar__mid { justify-content: center; }
+  .bar__zoomset, .bar__sep--zoom { display: none; }
+}
+
+/* ---------- the outline drawer (the PDF's bookmarks = table of contents) ---------- */
+
+.outline {
+  position: fixed; top: var(--bar-h); left: 0; bottom: 0; z-index: 25;
+  width: min(320px, 86vw);
+  background: var(--bar);
+  color: var(--bar-ink);
+  font-family: var(--ui);
+  font-size: 14px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translateX(-102%);
+  transition: transform 0.18s ease;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.35);
+  padding: 10px 0 24px;
+}
+.outline.is-open { transform: none; }
+.outline__title { margin: 6px 20px 10px; font-size: 12px; color: var(--bar-ink-2); letter-spacing: 0.02em; }
+.outline ol { list-style: none; margin: 0; padding: 0; }
+.outline a {
+  display: grid; grid-template-columns: 2.2em 1fr auto; gap: 6px; align-items: baseline;
+  padding: 7px 16px 7px 20px; color: var(--bar-ink); text-decoration: none;
+  border-left: 3px solid transparent;
+}
+.outline a:hover { background: var(--bar-hover); }
+.outline a[aria-current="true"] { border-left-color: var(--bar-ink); background: var(--bar-hover); font-weight: 600; }
+.outline .num { color: var(--bar-ink-2); font-variant-numeric: tabular-nums; }
+.outline .pg { color: var(--bar-ink-2); font-size: 12px; font-variant-numeric: tabular-nums; }
+.outline .sub a { padding-left: 44px; font-size: 13px; }
+
+.scrim {
+  position: fixed; inset: var(--bar-h) 0 0 0; z-index: 24;
+  background: rgba(0, 0, 0, 0.35); opacity: 0; pointer-events: none; transition: opacity 0.18s ease;
+}
+.scrim.is-on { opacity: 1; pointer-events: auto; }
+
+@media (min-width: 1500px) {
+  /* wide screens: the outline can stay open beside the pages without covering them */
+  .outline.is-open ~ .scrim { opacity: 0; pointer-events: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outline, .scrim { transition: none; }
+}
