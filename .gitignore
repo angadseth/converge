@@ -1,0 +1,10 @@
+# Local only: working memory and raw research
+memory/
+research/
+
+# Test tooling
+tests/node_modules/
+tests/shots/
+
+.DS_Store
+Thumbs.db
