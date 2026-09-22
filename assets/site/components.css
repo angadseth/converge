@@ -23,7 +23,7 @@ code { font-family: var(--mono); font-size: 0.8em; background: var(--fill); padd
 }
 @media (min-width: 1240px) {
   .body { position: relative; }
-  .body > .note { float: right; clear: right; width: 204px; margin: 0.2em -250px 1em 0; padding-left: 0; padding-top: 18px; font-size: 15.5px; }
+  .body > .note { float: right; clear: right; width: 198px; margin: 0.2em -242px 1em 0; padding-left: 0; padding-top: 18px; font-size: 15.5px; }
   .note::before { top: 0; left: 0; transform: scaleX(-1) rotate(8deg); }
   .body::after { content: ""; display: block; clear: both; }
 }
