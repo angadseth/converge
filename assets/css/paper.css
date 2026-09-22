@@ -269,3 +269,15 @@ ol.notes { margin: 0.6em 0 0; padding-left: 1.6em; }
 ol.notes li { margin: 0.35em 0; text-align: justify; hyphens: auto; }
 ol.notes li::marker { font-variant-numeric: lining-nums; }
 @media (max-width: 560px) { ol.notes li { text-align: left; } }
+
+/* resource tables: first column is the name, keep it from getting too wide */
+table.bt--res td:first-child { width: 38%; }
+@media (max-width: 560px) {
+  table.bt--res, table.bt--res tbody, table.bt--res tr, table.bt--res td { display: block; width: 100% !important; }
+  table.bt--res thead { display: none; }
+  table.bt--res tr { padding: 6px 0; }
+  table.bt--res td:first-child { font-weight: 700; padding-bottom: 0; }
+  table.bt--res.bt--rows tbody tr + tr td { border-top: 0; }
+  table.bt--res tbody tr + tr { border-top: 1px solid var(--hair); }
+}
+.ack { margin-top: 1.4em; }
