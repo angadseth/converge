@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Converge: the MLF, MLT and MLP field guide (IIT Madras BS)</title>
+<meta name="description" content="Before you start MLF, MLT and MLP, read this. What each course asks of you, how they fit together, every grading formula, a marks calculator, the Sep 2026 exam calendar and every resource worth opening. IIT Madras BS Diploma in Data Science.">
+<meta name="author" content="Angad Jangir">
+<meta name="theme-color" content="#eef1ec">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Converge: the MLF, MLT and MLP field guide">
+<meta property="og:description" content="What each course asks of you, every grading formula, a marks calculator, the Sep 2026 exam calendar and every resource worth opening.">
+<meta property="og:url" content="https://angadseth.github.io/converge/">
+<meta property="og:image" content="https://angadseth.github.io/converge/assets/og-site.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&display=swap">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("converge.theme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="assets/site/tokens.css">
+<link rel="stylesheet" href="assets/site/layout.css">
+<link rel="stylesheet" href="assets/site/components.css">
+<link rel="stylesheet" href="assets/site/widgets.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Converge, back to the top">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="6" style="fill: var(--ink)"/>
+        <g fill="none" stroke-width="3.2">
+          <ellipse cx="38" cy="38" rx="21" ry="14" stroke="#21918c"/>
+          <ellipse cx="38" cy="38" rx="13" ry="8.5" stroke="#5ec962"/>
+          <ellipse cx="38" cy="38" rx="5.5" ry="3.6" stroke="#c8ec4d"/>
+        </g>
+        <path d="M11 11 L21 25 L29 32 L38 38" fill="none" stroke="#ff5b52" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="11" cy="11" r="3.8" fill="#ff5b52"/>
+      </svg>
+      <span class="brand__name">Converge</span>
+    </a>
+    <span class="brand__ed">ML field guide, Sep 2026 edition</span>
+    <nav class="top__links" aria-label="Site">
+      <button class="btn" id="theme-btn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 2v14a7 7 0 0 1 0-14z"/></svg>
+        <span id="theme-txt">Auto</span>
+      </button>
+      <a class="btn" href="paper/" title="The same guide, typeset as a research paper">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h8l6 6v14H6zm7 1.5V9h5.5zM8 12v1.6h8V12zm0 3.4V17h8v-1.6zM8 8.6v1.6h4V8.6z"/></svg>
+        <span class="btn__txt--wide">Paper edition</span>
+      </a>
+      <a class="btn" href="https://github.com/angadseth/converge" aria-label="Source on GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+        <span class="btn__txt--wide">GitHub</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<div id="top"></div>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div>
+        <p class="hero__kicker">IIT Madras BS, Diploma in Data Science</p>
+        <h1>Before you start <mark>MLF, MLT and MLP</mark>, read this.</h1>
+        <p class="hero__lede">What a senior would tell you before the machine learning courses: what each one really asks of you, how they fit together, how every mark is counted, and how to get through the quizzes, OPPEs, Kaggle assignments and the project viva. Checked against the official course pages and the grading document.</p>
+        <p class="hero__warn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3 2 20h20z"/><path stroke="currentColor" stroke-width="2" d="M12 10v5M12 17v1.5"/></svg>
+          <span>Not an official course page. Rules and dates change every term, so check your term's grading document. No answers to graded work here, only how to approach it.</span>
+        </p>
+      </div>
+      <figure class="hero__fig" id="fig-descent">
+        <div class="descent" data-descent>
+          <canvas class="descent__plot" width="624" height="360" role="img" aria-label="A contour plot of a loss surface with three basins labelled MLF, MLT and MLP. A red path runs downhill from a starting point into the lowest basin, MLP."></canvas>
+          <div class="descent__ctl">
+            <label class="slider"><span class="slider__lbl">learning rate <var>&eta;</var></span>
+              <input type="range" min="0.01" max="1" step="0.01" value="0.08" data-eta>
+              <output class="slider__val" data-eta-out>0.08</output></label>
+            <label class="slider"><span class="slider__lbl">momentum <var>&beta;</var></span>
+              <input type="range" min="0" max="0.95" step="0.05" value="0.9" data-beta>
+              <output class="slider__val" data-beta-out>0.90</output></label>
+            <div class="descent__btns">
+              <button class="mpl-btn" type="button" data-run>Run again</button>
+              <span class="descent__log" data-log aria-live="polite">Tap the plot to choose a start.</span>
+            </div>
+          </div>
+        </div>
+        <figcaption><b>The whole diploma in one picture.</b> Gradient descent, which is MLF Week&nbsp;8. Tap anywhere on the plot to start a new run. Push the learning rate up and it overshoots; take the momentum away and it gets stuck in the first basin.</figcaption>
+      </figure>
+    </div>
+
+    <div class="ledger-stats">
+      <div class="stat"><p class="stat__k">Three courses and a project</p><p class="stat__v">14 credits</p><p class="stat__n">MLF 4, MLT 4, MLP 4 and the MLP Project 2.</p></div>
+      <div class="stat"><p class="stat__k">Official lectures</p><p class="stat__v">About 92 h</p><p class="stat__n">MLF 37 h, MLT 27 h, MLP 28 h, all free on YouTube.</p></div>
+      <div class="stat"><p class="stat__k">Sep 2026 term</p><p class="stat__v">Starts 2 Oct</p><p class="stat__n">Quiz 1 on 15 Nov. End term on 10 Jan 2027.</p></div>
+      <div class="stat"><p class="stat__k">MLP is different</p><p class="stat__v">No quizzes</p><p class="stat__n">Two OPPEs and three Kaggle assignments instead.</p></div>
+    </div>
+
+    <section class="slab" aria-labelledby="slab-h">
+      <p class="slab__k">Three courses, three different skills</p>
+      <h2 id="slab-h">MLF is <mark>maths</mark>. MLT is <mark>algorithms</mark>. MLP is <mark>code</mark>.</h2>
+      <div class="slab__cols">
+        <div class="slab__col c-mlf"><h3>MLF</h3><p>Calculus, linear algebra, optimisation and probability. Nearly every question is a calculation by hand, so practise problems every single week.</p></div>
+        <div class="slab__col c-mlt"><h3>MLT</h3><p>PCA to SVMs to neural networks. Know what each model assumes, what it minimises and how it trains. Derive it; don't memorise it.</p></div>
+        <div class="slab__col c-mlp"><h3>MLP</h3><p>The same models in scikit-learn, marked on code: two OPPEs and three Kaggle assignments. Your numbers have to match exactly.</p></div>
+      </div>
+    </section>
+
+    <section class="term" id="term" aria-labelledby="term-h">
+      <div class="term__head">
+        <h2 id="term-h">The Sep 2026 term, drawn to scale</h2>
+        <span class="term__src">from the official academic calendar</span>
+      </div>
+      <figure class="panel cal" id="cal-fig" data-cal>
+        <div class="calc__tabs" role="tablist" aria-label="Term">
+          <button class="mpl-btn" role="tab" type="button" data-term="2026-09" aria-selected="true">Sep 2026</button>
+          <button class="mpl-btn" role="tab" type="button" data-term="2027-01" aria-selected="false">Jan 2027</button>
+          <button class="mpl-btn" role="tab" type="button" data-term="2027-05" aria-selected="false">May 2027</button>
+        </div>
+        <p class="cal__next" data-next aria-live="polite"></p>
+        <svg class="cal__plot" data-cal-plot viewBox="0 0 624 250" role="img" aria-label="Timeline of the term's exams"></svg>
+        <details class="cal__more">
+          <summary>Show the dates as a list</summary>
+          <table class="cal__table" data-cal-table>
+            <thead><tr><th>Date</th><th>What</th><th>For</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </details>
+        <figcaption class="panel__cap">Diamonds are single days, bars are windows, and the red line is today. OPPE&nbsp;2 runs over four days, two before the holidays and two after; your own slot is allotted closer to the date. Weekly deadlines, Kaggle assignment and project dates come with each term's grading document.</figcaption>
+      </figure>
+    </section>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="toc__h">Chapters</p>
+    <ol>
+      <li><a href="#courses"><span class="n">01</span><span>The three courses</span></a></li>
+      <li><a href="#order"><span class="n">02</span><span>Which order to take them</span></a></li>
+      <li><a href="#before"><span class="n">03</span><span>Before you start</span></a></li>
+      <li><a href="#mlf"><span class="n">04</span><span>MLF: Foundations</span></a></li>
+      <li><a href="#mlt"><span class="n">05</span><span>MLT: Techniques</span></a></li>
+      <li><a href="#mlp"><span class="n">06</span><span>MLP: Practice</span></a></li>
+      <li><a href="#project"><span class="n">07</span><span>The MLP Project</span></a></li>
+      <li><a href="#assess"><span class="n">08</span><span>Every assessment</span></a></li>
+      <li><a href="#calc"><span class="n">09</span><span>Marks calculator</span></a></li>
+      <li><a href="#resources"><span class="n">10</span><span>Resources</span></a></li>
+      <li><a href="#doubts"><span class="n">11</span><span>Doubts, answered</span></a></li>
+      <li><a href="#glossary"><span class="n">12</span><span>Glossary</span></a></li>
+    </ol>
+    <div class="toc__bar" aria-hidden="true"><span></span></div>
+  </aside>
+
+  <main id="main">
+    <details class="toc-m">
+      <summary>Chapters</summary>
+      <ol>
+        <li><a href="#courses"><span class="n">01</span><span>The three courses</span></a></li>
+        <li><a href="#order"><span class="n">02</span><span>Which order to take them</span></a></li>
+        <li><a href="#before"><span class="n">03</span><span>Before you start</span></a></li>
+        <li><a href="#mlf"><span class="n">04</span><span>MLF: Foundations</span></a></li>
+        <li><a href="#mlt"><span class="n">05</span><span>MLT: Techniques</span></a></li>
+        <li><a href="#mlp"><span class="n">06</span><span>MLP: Practice</span></a></li>
+        <li><a href="#project"><span class="n">07</span><span>The MLP Project</span></a></li>
+        <li><a href="#assess"><span class="n">08</span><span>Every assessment</span></a></li>
+        <li><a href="#calc"><span class="n">09</span><span>Marks calculator</span></a></li>
+        <li><a href="#resources"><span class="n">10</span><span>Resources</span></a></li>
+        <li><a href="#doubts"><span class="n">11</span><span>Doubts, answered</span></a></li>
+        <li><a href="#glossary"><span class="n">12</span><span>Glossary</span></a></li>
+      </ol>
+    </details>
+
+</main>
+</div>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <p class="foot__made">Made by Angad Jangir</p>
+    <p>
+      <a href="paper/">Paper edition</a> &nbsp;/&nbsp;
+      <a href="https://angadseth.github.io/tds-field-guide/">TDS Field Guide</a> &nbsp;/&nbsp;
+      <a href="https://github.com/angadseth/converge/issues">Found a mistake? Open an issue</a>
+    </p>
+  </div>
+</footer>
+
+<div class="ticket" id="ticket" hidden>
+  <a class="ticket__go" href="#term"><span class="ticket__k"></span><span class="ticket__v"></span></a>
+  <button class="ticket__x" type="button" aria-label="Hide the next-exam note">&times;</button>
+</div>
+
+<script src="assets/js/descent.js" defer></script>
+<script src="assets/js/calendar.js" defer></script>
+<script src="assets/js/widgets.js" defer></script>
+<script src="assets/js/calc.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
