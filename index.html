@@ -642,6 +642,79 @@
   <p class="sheet__folio">7</p>
 </article>
 
+<!-- ============================ PAGE 8: ASSESSMENTS ============================ -->
+<article class="sheet" id="p8">
+  <div class="sheet__head" aria-hidden="true"><span>On the Convergence of Students</span><span>Assessments, one by one</span></div>
+
+  <h2 class="sec" id="assess"><span class="sec__n">8</span><span>Assessments, one by one</span></h2>
+
+  <h3 class="subsec" id="ga"><span class="subsec__n">8.1</span><span>Weekly graded assignments</span></h3>
+  <div class="prose">
+    <p>Every week of every course has a graded assignment with a fixed deadline, listed in the grading document. The May 2026 document adds, in capitals, that none of the deadlines will be moved <a class="cite" href="#ref-5">[5]</a>. The assignments carry a small weight in the total (5% in MLF and MLT, 10% in MLP), but Weeks 1&ndash;7 decide whether you may sit the end term at all (Proposition&nbsp;<a href="#prop-elig">2</a>), so treat the early weeks as the ones that matter most.</p>
+    <p><span class="para">MLF and MLT.</span>The questions are multiple choice, multiple select and numeric entry. In a multiple-select question, treat each option as its own true-or-false question. In a numeric question, read the rounding instruction first, carry full precision through the working and round only once, at the end. When a definition has two common versions (dividing by <var>n</var> or by <var>n</var>&nbsp;&minus;&nbsp;1 in a variance, for instance), use the one the lectures use.</p>
+    <p><span class="para">MLP.</span>Most questions give you a dataset and a precise recipe, and ask for a number: train this model with these parameters and report this metric on this split, to three decimal places. The marks go to the exact number, so the method is about matching the recipe, not about modelling well.</p>
+  </div>
+
+  <div class="algo" id="algo-ga">
+    <p class="algo__cap"><b>Algorithm 3:</b> Answering an MLP assignment question</p>
+    <ol>
+      <li>load the data exactly as the question says: same file, same columns, same train&ndash;test split and <code>random_state</code></li>
+      <li>set every parameter the question names; leave every other one at its scikit-learn default</li>
+      <li>fit transformers and models on the training set only, then apply them to the test set</li>
+      <li>compute the metric the question asks for, on the set it asks for</li>
+      <li>round to the requested number of decimals only at the end</li>
+      <li><span class="kw">if</span> your number does not match any option <span class="kw">then</span></li>
+      <li class="in1">re-read the split and the parameters, then check your scikit-learn version <span class="cm">defaults change between versions</span></li>
+      <li><span class="kw">end if</span></li>
+    </ol>
+  </div>
+
+  <h3 class="subsec" id="eligibility"><span class="subsec__n">8.2</span><span>Am I eligible for the end term?</span></h3>
+  <div class="prose">
+    <p class="noindent">Enter your scores for Weeks 1&ndash;7 and Mock Quiz&nbsp;1. The check takes the best 5 of the 8, as Propositions&nbsp;<a href="#prop-elig">2</a> and <a href="#prop-mlp">3</a> say. Leave a box empty if that assignment is not out yet; it counts as zero.</p>
+  </div>
+  <form class="elig" id="elig" onsubmit="return false" aria-describedby="elig-out">
+    <div class="elig__course" role="radiogroup" aria-label="Course">
+      <label><input type="radio" name="ecourse" value="theory" checked> <span>MLF or MLT</span></label>
+      <label><input type="radio" name="ecourse" value="mlp"> <span>MLP</span></label>
+    </div>
+    <div class="elig__grid">
+      <label><span>W1</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w1"></label>
+      <label><span>W2</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w2"></label>
+      <label><span>W3</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w3"></label>
+      <label><span>W4</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w4"></label>
+      <label><span>W5</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w5"></label>
+      <label><span>W6</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w6"></label>
+      <label><span>W7</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w7"></label>
+      <label><span>Mock</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="mock"></label>
+    </div>
+    <label class="elig__quiz"><input type="checkbox" name="quiz"> <span>I attended (or will attend) at least one quiz</span></label>
+    <div class="elig__out" id="elig-out" aria-live="polite">
+      <span class="stamp-verdict" data-verdict></span>
+      <span class="elig__detail" data-detail></span>
+    </div>
+  </form>
+
+  <h3 class="subsec" id="quizzes"><span class="subsec__n">8.3</span><span>Quizzes (MLF and MLT)</span></h3>
+  <div class="prose">
+    <p>Both quizzes are written in person at an exam centre. Quiz&nbsp;1 covers Weeks 1&ndash;4 and Quiz&nbsp;2 covers Weeks 1&ndash;8. A quiz is one sitting for all your courses: 2 hours if you have one or two quiz courses, 3 hours for three and 4 hours for four. There is no make-up quiz; a quiz you miss scores zero <a class="cite" href="#ref-8">[8]</a>. In the Sep 2026 term, Quiz&nbsp;1 is on Sunday 15 November and Quiz&nbsp;2 on Saturday 5 December <a class="cite" href="#ref-7">[7]</a>.</p>
+    <p>Each course runs a mock quiz before Quiz&nbsp;1, and it counts: it is the &ldquo;Mock Assignment&rdquo; in both <var>GAA</var> and the eligibility check. Where a course runs mocks before both quizzes, an average of at least 40 across them earns up to 2 bonus marks <a class="cite" href="#ref-5">[5]</a>. Past papers are the best preparation there is; Section&nbsp;<a href="#resources">11</a> lists where students have solved them on video.</p>
+  </div>
+
+  <h3 class="subsec" id="oppe"><span class="subsec__n">8.4</span><span>OPPEs (MLP)</span></h3>
+  <div class="prose">
+    <p>The Online Programming Exams are remote-proctored and taken on your own computer. Before OPPE&nbsp;1 you must pass the System Compatibility Test; skip it and OPPE&nbsp;1 is not scheduled at all <a class="cite" href="#ref-5">[5]</a>. In the Sep 2026 term, OPPE&nbsp;1 runs on 21&ndash;22 November, and OPPE&nbsp;2 on 19&ndash;20 December and 2&ndash;3 January <a class="cite" href="#ref-7">[7]</a>; your slot is allotted closer to the date.</p>
+    <p>The practice that transfers best is to redo the weekly MLP assignments against a clock, with nothing open but your notebook and the scikit-learn documentation, until loading, splitting, fitting and scoring is muscle memory. A community-made OPPE&nbsp;1 mock on Kaggle <a class="cite" href="#ref-43">[43]</a> gives you the format. Read the exam's own instructions for what may be open on screen; do not assume.</p>
+  </div>
+
+  <h3 class="subsec" id="endterm"><span class="subsec__n">8.5</span><span>The end term</span></h3>
+  <div class="prose">
+    <p>The end term is written in person, and in the Sep 2026 term it is on Sunday 10 January 2027 <a class="cite" href="#ref-7">[7]</a>. It covers all twelve weeks, including Weeks 11 and 12 whose assignments do not count towards <var>GAA</var>. It carries 40&ndash;60% of MLF and MLT, depending on which branch of Equation&nbsp;<a href="#eq-1">(1)</a> wins, and 30% of MLP. In MLF and MLT, a strong end term can rescue a weak quiz through the first branch of the formula; in MLP no end term score can stand in for passing an OPPE (Table&nbsp;<a href="#tab-oppe">9</a>).</p>
+  </div>
+
+  <p class="sheet__folio">8</p>
+</article>
+
 </main>
 
 <footer class="colophon">
