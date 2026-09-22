@@ -281,3 +281,8 @@ table.bt--res td:first-child { width: 38%; }
   table.bt--res tbody tr + tr { border-top: 1px solid var(--hair); }
 }
 .ack { margin-top: 1.4em; }
+
+.sec__n:empty { display: none; }
+.refs__intro { margin: 0 0 0.6em; font-size: 0.86em; color: var(--ink-2); }
+.refs a { color: var(--link); }
+.refs li:target { background: var(--fill); }
