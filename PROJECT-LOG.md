@@ -38,6 +38,12 @@ calculator maths for all four courses, eligibility edge cases, search, theme cyc
 Found and fixed by looking: a 7 px overflow at 320 px (grade table), Figure 2 label crowding, the calendar's
 "today" label colliding, equations wrapping on desktop, a card overflowing in the share image.
 
+**Also added:** hovering or focusing a citation shows the reference in place (like arXiv's HTML view).
+
+**Live verification:** `check.mjs https://angadseth.github.io/converge/ --links` ALL PASSED on build `24bd458`:
+53 external links respond; the two Medium notes return 403 to scripts (bot wall) but open in a browser, and the check
+reports them as a note, not a pass. Live screenshots checked on desktop and phone, light and dark.
+
 **Still open:**
 - Sep 2026 grading document and project guideline are not out yet. When they are: update the formulas if they
   changed, Remark 1.1, the KA and milestone dates (Sections 6.3, 7.3), the cutoff, and `docs/sources.md`.
