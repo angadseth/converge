@@ -715,6 +715,44 @@
   <p class="sheet__folio">8</p>
 </article>
 
+<!-- ============================ PAGE 9: CALCULATOR ============================ -->
+<article class="sheet" id="p9">
+  <div class="sheet__head" aria-hidden="true"><span>On the Convergence of Students</span><span>Marks calculator</span></div>
+
+  <h2 class="sec" id="calc"><span class="sec__n">9</span><span>Marks calculator</span></h2>
+  <div class="prose">
+    <p class="noindent">Pick a course and fill in what you know. The calculator applies Equations&nbsp;<a href="#eq-1">(1)</a>&ndash;<a href="#eq-4">(4)</a> exactly, draws your total as a function of the score you do not know yet, and tells you the end term (or viva) score each grade needs. Numbers you type stay in this browser.</p>
+  </div>
+
+  <figure class="fig calc" id="calc-fig" data-calc>
+    <div class="calc__tabs" role="tablist" aria-label="Course">
+      <button class="mpl-btn" role="tab" type="button" data-course="mlf" aria-selected="true">MLF</button>
+      <button class="mpl-btn" role="tab" type="button" data-course="mlt" aria-selected="false">MLT</button>
+      <button class="mpl-btn" role="tab" type="button" data-course="mlp" aria-selected="false">MLP</button>
+      <button class="mpl-btn" role="tab" type="button" data-course="proj" aria-selected="false">MLP Project</button>
+    </div>
+    <div class="calc__inputs" data-inputs></div>
+    <div class="calc__result" aria-live="polite">
+      <p class="calc__total" data-total></p>
+      <p class="calc__note" data-note></p>
+    </div>
+    <svg class="calc__plot" data-plot viewBox="0 0 624 280" role="img" aria-label="Total score plotted against the end term score, with grade bands"></svg>
+    <div class="tbl calc__need">
+      <table class="bt" data-need>
+        <thead><tr><th>Grade</th><th class="num">Total needed</th><th class="num" data-need-h>End term needed</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <figcaption class="fig__cap"><b>Figure 3:</b> Your total <var>T</var> as the end term score <var>F</var> (or, for the project, the viva score <var>V</var>) goes from zero to full marks, with the grade bands drawn as horizontal lines. The dot is where you are with the score you entered. Grade bands follow the programme's usual scale (S&nbsp;&ge;&nbsp;90, A&nbsp;&ge;&nbsp;80, B&nbsp;&ge;&nbsp;70, C&nbsp;&ge;&nbsp;60, D&nbsp;&ge;&nbsp;50, E&nbsp;&ge;&nbsp;40); confirm them in the student handbook for your term. Bonus marks are added only if you pass without them <a class="cite" href="#ref-5">[5]</a>.</figcaption>
+  </figure>
+
+  <div class="trap">
+    <p><span class="trap__h">Trap.</span>A total of 40 is not enough on its own. You also need end term eligibility (Proposition&nbsp;<a href="#prop-elig">2</a>), for MLP an OPPE score of at least 40 (Proposition&nbsp;<a href="#prop-mlp">3</a>), and for the project a viva of at least 25 and a total of at least 50 (Proposition&nbsp;<a href="#prop-proj">4</a>). The calculator checks these too.</p>
+  </div>
+
+  <p class="sheet__folio">9</p>
+</article>
+
 </main>
 
 <footer class="colophon">
@@ -724,5 +762,6 @@
 <script src="assets/js/viewer.js" defer></script>
 <script src="assets/js/descent.js" defer></script>
 <script src="assets/js/widgets.js" defer></script>
+<script src="assets/js/calc.js" defer></script>
 </body>
 </html>

@@ -124,3 +124,18 @@
 @media (max-width: 560px) {
   .elig__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+/* ---------- Figure 3: the calculator ---------- */
+
+.calc { border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); padding: 12px 0 10px; }
+.calc__tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.calc__inputs { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px 12px; font-size: 0.88em; }
+.calc__f { display: grid; gap: 3px; }
+.calc__f span { color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.calc__result { margin: 14px 0 4px; min-height: 3.2em; }
+.calc__total { margin: 0; font-size: 1.05em; }
+.calc__grade { display: inline-block; margin-left: 12px; padding: 1px 10px; border: 3px double var(--ink); font-variant: small-caps; font-weight: 700; letter-spacing: 0.04em; }
+.calc__note { margin: 4px 0 0; font-size: 0.88em; font-style: italic; color: var(--ink-2); }
+.calc__plot { width: 100%; height: auto; margin: 6px 0 2px; font-family: var(--serif); }
+.calc__need { margin: 8px 0 0; }
+.calc__need table.bt { font-size: 0.84em; }
