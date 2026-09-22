@@ -132,6 +132,41 @@
     applyTheme(t === "auto" ? "light" : t === "light" ? "dark" : "auto");
   });
 
+  /* ---------- citation previews: hover or focus [n] to read the reference in place ---------- */
+  var tip = document.createElement("div");
+  tip.className = "cite-tip";
+  tip.setAttribute("role", "tooltip");
+  tip.id = "cite-tip";
+  tip.hidden = true;
+  document.body.appendChild(tip);
+  var tipTimer = 0;
+  function showTip(a) {
+    var ref = document.getElementById((a.getAttribute("href") || "").slice(1));
+    if (!ref) return;
+    var body = ref.querySelector("span:not(.lbl)");
+    tip.innerHTML = '<span class="cite-tip__n">' + ref.querySelector(".lbl").textContent + "</span> " + (body ? body.innerHTML : "");
+    tip.hidden = false;
+    var r = a.getBoundingClientRect(), w = Math.min(420, window.innerWidth - 24);
+    tip.style.width = w + "px";
+    var left = Math.max(12, Math.min(window.innerWidth - w - 12, r.left + r.width / 2 - w / 2));
+    tip.style.left = left + "px";
+    var h = tip.offsetHeight;
+    var top = r.top - h - 8 < 56 ? r.bottom + 8 : r.top - h - 8;
+    tip.style.top = (top + window.scrollY) + "px";
+    a.setAttribute("aria-describedby", "cite-tip");
+  }
+  function hideTip() { tip.hidden = true; }
+  if (window.matchMedia && window.matchMedia("(hover: hover)").matches) {
+    document.addEventListener("mouseover", function (e) {
+      var a = e.target.closest && e.target.closest("a.cite");
+      if (a) { clearTimeout(tipTimer); tipTimer = setTimeout(function () { showTip(a); }, 180); }
+      else if (!e.target.closest || !e.target.closest(".cite-tip")) { clearTimeout(tipTimer); tipTimer = setTimeout(hideTip, 160); }
+    });
+  }
+  document.addEventListener("focusin", function (e) { var a = e.target.closest && e.target.closest("a.cite"); if (a) showTip(a); else hideTip(); });
+  window.addEventListener("scroll", function () { if (!tip.hidden && !tip.matches(":hover")) hideTip(); }, { passive: true });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") hideTip(); });
+
   /* ---------- print ---------- */
   document.getElementById("print-btn").addEventListener("click", function () { window.print(); });
 

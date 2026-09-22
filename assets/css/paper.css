@@ -314,3 +314,15 @@ table.bt--res td:first-child { width: 38%; }
 .gloss dt { font-weight: 700; }
 .gloss dd { margin: 0; text-align: justify; hyphens: auto; }
 @media (max-width: 560px) { .gloss { grid-template-columns: 1fr; gap: 0; } .gloss dd { margin-bottom: 8px; text-align: left; } }
+
+/* citation preview, like arXiv's HTML view */
+.cite-tip {
+  position: absolute; z-index: 40; padding: 8px 12px;
+  background: var(--page); color: var(--ink); border: 1px solid var(--ink);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  font-family: var(--serif); font-size: 15px; line-height: 1.4;
+}
+.cite-tip .t { font-style: italic; }
+.cite-tip .url { font-family: var(--mono); font-size: 0.86em; word-break: break-all; }
+.cite-tip__n { color: var(--cite); }
+@media print { .cite-tip { display: none !important; } }
