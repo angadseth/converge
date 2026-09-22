@@ -347,6 +347,72 @@
       </div>
     </section>
 
+    <!-- ======================= 04 MLF ======================= -->
+    <section class="chapter" id="mlf">
+      <div class="chapter__head"><span class="chapter__n">04</span><h2><span class="sw sw--mlf" aria-hidden="true"></span>MLF: Machine Learning Foundations</h2></div>
+      <div class="body">
+        <p class="lead">A maths course wearing an ML name tag. In the course page's own words, it covers "fundamentals that do not necessarily fall under Machine Learning but are quite necessary" for it.</p>
+        <p class="note">93 lectures, about 37 hours. Every one is on YouTube.</p>
+        <p>Calculus, linear algebra, optimisation and probability, each tied back to a machine learning problem. Taught by Harish Guruprasad Ramaswamy, Arun Rajkumar and Prashanth L.A. Here is the course week by week, from the titles in the <a href="https://www.youtube.com/playlist?list=PLZ2ps__7DhBammhVmBE9f5eezTj2kDfTN">official lecture playlist</a>. The course page orders the middle weeks a little differently; follow your portal.</p>
+      </div>
+      <div class="tbl wide">
+        <table class="ledger ledger--weeks">
+          <thead><tr><th>Week</th><th>What you learn</th><th>Where it comes back</th></tr></thead>
+          <tbody>
+            <tr><td class="n">1</td><td>What ML is: regression, classification, dimensionality reduction, density estimation</td><td class="aside">The map for the whole diploma</td></tr>
+            <tr><td class="n">2</td><td>Calculus: continuity, derivatives, linear approximation, many variables</td><td class="aside">Every gradient in MLT</td></tr>
+            <tr><td class="n">3</td><td>The four fundamental subspaces, projections, least squares</td><td class="aside">Linear regression is a projection</td></tr>
+            <tr><td class="n">4</td><td>Linear and polynomial regression; eigenvalues, eigenvectors, diagonalisation</td><td class="aside">PCA</td></tr>
+            <tr><td class="n">5</td><td>Complex, Hermitian and unitary matrices</td><td class="aside">Why symmetric matrices behave</td></tr>
+            <tr><td class="n">6</td><td>Singular value decomposition; positive definite matrices</td><td class="aside">PCA, compression</td></tr>
+            <tr><td class="n">7</td><td>Principal component analysis, as maximising variance</td><td class="aside">MLT Weeks 1&ndash;2</td></tr>
+            <tr><td class="n">8</td><td>Unconstrained optimisation, gradient descent, Taylor series</td><td class="aside">How every model trains</td></tr>
+            <tr><td class="n">9</td><td>Constrained optimisation, Lagrange multipliers, convexity</td><td class="aside">SVMs, regularisation</td></tr>
+            <tr><td class="n">10</td><td>Convexity in ML; primal and dual; KKT conditions</td><td class="aside">The SVM dual in MLT</td></tr>
+            <tr><td class="n">11</td><td>Continuous random variables; uniform, exponential, normal</td><td class="aside">MLE, Naive Bayes</td></tr>
+            <tr><td class="n">12</td><td>Multivariate normal, estimation, Gaussian mixtures and EM</td><td class="aside">MLT Week 4</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="body">
+        <h3>What makes it hard</h3>
+        <p><b>Weeks 3 to 6, the linear algebra block.</b> It moves fast and builds on itself: a doubt left over from Week&nbsp;3 becomes three doubts by Week&nbsp;6. Week&nbsp;5's Hermitian and unitary matrices feel far from ML until you see they are the reason PCA and the SVD work.</p>
+        <p><b>The optimisation weeks are where it turns into ML.</b> Gradient descent, convexity, Lagrange multipliers and KKT are exactly the tools MLT uses for regression, logistic regression and SVMs. Time spent here pays twice.</p>
+        <p><b>Almost every question is a number.</b> One slip in the last line costs the whole question, so checking your arithmetic is a skill worth practising on its own.</p>
+
+        <h3>A week that works</h3>
+        <ol class="steps">
+          <li><b>Watch with a notebook open.</b> Pause at every worked example and try it before the lecturer finishes it.</li>
+          <li><b>Do the practice assignment without notes.</b> Then, for every miss, find the minute of the lecture that explains it.</li>
+          <li><b>Do the graded assignment, and check each number a second way.</b> For example, verify an eigenvector by actually computing <i>Av</i>.</li>
+          <li><b>Write the week on one page:</b> definitions, results, one example. Twelve pages is your revision for the end term.</li>
+          <li><b>Before each quiz, redo the assignments in scope and then past papers against the clock.</b> Quiz&nbsp;1 covers Weeks 1&ndash;4, Quiz&nbsp;2 covers Weeks 1&ndash;8.</li>
+        </ol>
+        <p class="note">Free book that matches the course: Mathematics for Machine Learning, chapters 2 to 7.</p>
+        <p><b>Books that match.</b> Chapters 2&ndash;7 of <a href="https://mml-book.github.io/"><i>Mathematics for Machine Learning</i></a> follow MLF almost chapter for chapter, and it is free. For convexity and KKT, <a href="https://web.stanford.edu/~boyd/cvxbook/">Boyd and Vandenberghe</a> is the standard text, also free. The subspace weeks are Gilbert Strang's own framing, so his <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/">MIT course</a> is the natural companion.</p>
+
+        <h3>How MLF is marked</h3>
+      </div>
+      <div class="formula">
+        <p class="formula__eq"><var>T</var> = 0.05&middot;GAA + max( 0.6&middot;F + 0.25&middot;max(Qz1, Qz2), 0.4&middot;F + 0.25&middot;Qz1 + 0.3&middot;Qz2 )</p>
+        <p class="formula__where">GAA is the average of your best 10 of 11 scores (Week 1&ndash;10 assignments and Mock Quiz 1). Qz1, Qz2 are the quiz scores, 0 if you missed one. F is the end term. All out of 100. From the May 2026 grading document.</p>
+      </div>
+      <div class="body">
+        <p>The grader takes the better of two formulas. The first counts only your better quiz, so one bad or missed quiz does not sink you. The second rewards doing well in both and gives Quiz&nbsp;2 more weight. You never choose; the max is taken for you.</p>
+        <p><b>Worked example.</b> GAA 80, Quiz&nbsp;1 50, Quiz&nbsp;2 70, end term 60. First formula: 36 + 17.5 = 53.5. Second: 24 + 12.5 + 21 = 57.5. So T = 4 + 57.5 = <mark>61.5</mark>. Try your own numbers in the <a href="#calc">calculator</a>.</p>
+        <div class="rule">
+          <span class="rule__tag">Rule</span>
+          <p class="rule__text">To sit the end term: the average of your best 5 of 8 scores (Week 1&ndash;7 assignments and Mock Quiz&nbsp;1) must be at least 40, and you must attend at least one of the two quizzes. The same rule applies to MLT.</p>
+          <p class="rule__src">Source: grading document, MLF and MLT sections, updated 15 July 2026. Mock Quiz 1 shows up on your dashboard as "Mock Assignment".</p>
+        </div>
+        <div class="trap">
+          <span class="trap__h">Trap: skipping Weeks 11 and 12</span>
+          <p>Their assignments are not part of GAA, so it is tempting to skip them. Their content is in the end term, and the grading document says so in as many words. Do them.</p>
+        </div>
+      </div>
+    </section>
+
 </main>
 </div>
 
