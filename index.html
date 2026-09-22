@@ -629,6 +629,64 @@
       </div>
     </section>
 
+    <!-- ======================= 08 ASSESSMENTS ======================= -->
+    <section class="chapter" id="assess">
+      <div class="chapter__head"><span class="chapter__n">08</span><h2>Every assessment, and how to take it</h2></div>
+      <div class="body">
+        <p class="lead">Weekly assignments carry little weight, but <mark>Weeks 1 to 7 decide whether you may sit the end term at all</mark>. Treat the early weeks as the ones that matter most.</p>
+
+        <h3>Weekly graded assignments</h3>
+        <p>Every week of every course has one, with a fixed deadline in the grading document; the May 2026 document says, in capitals, that none of them will move. They are 5% of MLF and MLT and 10% of MLP.</p>
+        <p><b>In MLF and MLT</b> you get multiple choice, multiple select and numeric answers. Treat each option of a multiple-select question as its own true-or-false question. In a numeric one, read the rounding instruction first, keep full precision through the working, and round once, at the end. When a definition has two versions (dividing a variance by <i>n</i> or by <i>n</i>&minus;1), use the one the lectures use.</p>
+        <p><b>In MLP</b> most questions hand you a dataset and a precise recipe and ask for a number: train this model with these settings, report this metric on this split, to three decimals. The marks go to the exact number, so the job is matching the recipe, not modelling well:</p>
+        <ol class="steps">
+          <li><b>Load the data exactly as asked:</b> same file, same columns, same split and <code>random_state</code>.</li>
+          <li><b>Set every parameter the question names;</b> leave the rest at scikit-learn's defaults.</li>
+          <li><b>Fit on the training set only,</b> then apply the fitted transformers and model to the test set.</li>
+          <li><b>Compute the metric asked for, on the set asked for,</b> and round only at the end.</li>
+          <li><b>If no option matches,</b> re-read the split and the parameters, then check your scikit-learn version: defaults change between versions.</li>
+        </ol>
+
+        <h3 id="eligibility">Am I eligible for the end term?</h3>
+        <p>Type your Week 1&ndash;7 scores and Mock Quiz&nbsp;1. It takes the best 5 of the 8. Leave a box empty if that assignment isn't out yet; it counts as zero. Nothing leaves your browser.</p>
+      </div>
+      <form class="panel elig" id="elig" onsubmit="return false" aria-describedby="elig-out">
+        <div class="elig__course" role="radiogroup" aria-label="Course">
+          <label><input type="radio" name="ecourse" value="theory" checked> <span>MLF or MLT</span></label>
+          <label><input type="radio" name="ecourse" value="mlp"> <span>MLP</span></label>
+        </div>
+        <div class="elig__grid">
+          <label><span>W1</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w1"></label>
+          <label><span>W2</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w2"></label>
+          <label><span>W3</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w3"></label>
+          <label><span>W4</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w4"></label>
+          <label><span>W5</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w5"></label>
+          <label><span>W6</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w6"></label>
+          <label><span>W7</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="w7"></label>
+          <label><span>Mock</span><input type="number" inputmode="decimal" min="0" max="100" step="any" name="mock"></label>
+        </div>
+        <label class="elig__quiz"><input type="checkbox" name="quiz"> <span>I attended (or will attend) at least one quiz</span></label>
+        <div class="elig__out" id="elig-out" aria-live="polite">
+          <span class="stamp-verdict" data-verdict></span>
+          <span class="elig__detail" data-detail></span>
+        </div>
+      </form>
+
+      <div class="body">
+        <h3>Quizzes (MLF and MLT)</h3>
+        <p>Written in person at an exam centre. Quiz&nbsp;1 covers Weeks 1&ndash;4 and Quiz&nbsp;2 covers Weeks 1&ndash;8. It is one sitting for all your quiz courses: 2 hours for one or two courses, 3 for three, 4 for four. There is no make-up quiz, and a missed quiz scores zero (<a href="https://study.iitm.ac.in/ds/academics.html">Academics page</a>). In the Sep 2026 term, Quiz&nbsp;1 is on Sunday 15 November and Quiz&nbsp;2 on Saturday 5 December.</p>
+        <p class="note">Mock Quiz 1 counts: it is in both GAA and the eligibility check.</p>
+        <p>Each course runs a mock before Quiz&nbsp;1, and it counts. Where a course runs mocks before both quizzes, an average of 40 or more across them can earn up to 2 bonus marks. Past papers are the best preparation there is; <a href="#resources">chapter 10</a> lists students who have solved them on video.</p>
+
+        <h3>OPPEs (MLP)</h3>
+        <p>Online, remote-proctored programming exams, on your own computer. Pass the System Compatibility Test first, or OPPE&nbsp;1 is not scheduled at all. In the Sep 2026 term OPPE&nbsp;1 runs on 21&ndash;22 November, and OPPE&nbsp;2 on 19&ndash;20 December and 2&ndash;3 January; your own slot is allotted closer to the date.</p>
+        <p>The practice that transfers best: redo the weekly MLP assignments against a clock until loading, splitting, fitting and scoring is muscle memory. A student-made <a href="https://www.kaggle.com/code/param302/iitmbs-mlp-oppe-1-mock-1">OPPE 1 mock on Kaggle</a> shows you the format. Read the exam's own instructions for what may be open on your screen; don't assume.</p>
+
+        <h3>The end term</h3>
+        <p>In person; in the Sep 2026 term, Sunday 10 January 2027. It covers all twelve weeks, including Weeks 11 and 12. It is 40&ndash;60% of MLF and MLT depending on which half of the formula wins, and 30% of MLP. In MLF and MLT a strong end term can rescue a weak quiz. In MLP no end term score can stand in for passing an OPPE.</p>
+      </div>
+    </section>
+
 </main>
 </div>
 
