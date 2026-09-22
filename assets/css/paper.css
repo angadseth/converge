@@ -255,3 +255,11 @@ table.bt.bt--rows tbody tr + tr td { border-top: 1px solid var(--hair); }
   .eq { grid-template-columns: 1fr; }
   .eq__n { justify-self: end; margin-top: -0.4em; }
 }
+
+/* week tables: a narrow number column, then text */
+table.bt--weeks td:first-child, table.bt--weeks th:first-child { width: 2.4em; }
+table.bt--weeks td:last-child { color: var(--ink-2); font-style: italic; }
+@media (max-width: 560px) {
+  table.bt--weeks th:last-child, table.bt--weeks td:last-child { display: none; }
+}
+.sec .sw { width: 0.62em; height: 0.62em; vertical-align: 0.08em; }
