@@ -1,0 +1,74 @@
+/* Converge: interactive figures and widgets. Controls borrow matplotlib's widget look. */
+
+/* ---------- matplotlib-style widgets ---------- */
+
+.mpl-btn {
+  padding: 4px 14px; min-height: 32px;
+  border: 1px solid var(--ink-3); border-radius: 0;
+  background: var(--fill); color: var(--ink);
+  font-family: var(--serif); font-size: 0.86em;
+}
+.mpl-btn:hover { background: var(--page); border-color: var(--ink); }
+.mpl-btn[aria-pressed="true"], .mpl-btn[aria-selected="true"] { background: var(--ink); color: var(--page); border-color: var(--ink); }
+
+.slider {
+  display: grid; grid-template-columns: 9.5em 1fr 3.2em; align-items: center; gap: 10px;
+  font-size: 0.86em;
+}
+.slider__lbl { text-align: right; white-space: nowrap; }
+.slider__val { font-variant-numeric: tabular-nums lining-nums; }
+.slider input[type="range"] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 22px; margin: 0;
+  background: transparent;
+  --p: 50%;
+}
+.slider input[type="range"]::-webkit-slider-runnable-track {
+  height: 14px; border: 1px solid var(--ink-3);
+  background: linear-gradient(to right, color-mix(in srgb, var(--c-mlf) 70%, transparent) var(--p), transparent var(--p));
+}
+.slider input[type="range"]::-moz-range-track {
+  height: 12px; border: 1px solid var(--ink-3);
+  background: linear-gradient(to right, color-mix(in srgb, var(--c-mlf) 70%, transparent) var(--p), transparent var(--p));
+}
+.slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 4px; height: 20px; margin-top: -4px; background: var(--ink); border: 0; border-radius: 0;
+}
+.slider input[type="range"]::-moz-range-thumb { width: 4px; height: 20px; background: var(--ink); border: 0; border-radius: 0; }
+
+/* ---------- Figure 1: the descent ---------- */
+
+.descent__plot { width: 100%; height: auto; aspect-ratio: 624 / 360; cursor: crosshair; touch-action: manipulation; }
+.descent__ctl { display: grid; gap: 6px; margin-top: 10px; }
+.descent__btns { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding-left: calc(9.5em * 0.86 + 10px); }
+.descent__log { font-size: 0.86em; font-style: italic; color: var(--ink-2); }
+
+@media (max-width: 560px) {
+  .slider { grid-template-columns: 1fr 3em; }
+  .slider__lbl { grid-column: 1 / -1; text-align: left; }
+  .descent__btns { padding-left: 0; }
+}
+
+/* ---------- tables that stack into labelled rows on phones ---------- */
+
+@media (max-width: 640px) {
+  table.bt--stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  table.bt--stack, table.bt--stack tbody, table.bt--stack tr, table.bt--stack td { display: block; width: 100%; }
+  table.bt--stack tr { padding: 8px 0; }
+  table.bt--stack.bt--rows tbody tr + tr td { border-top: 0; }
+  table.bt--stack tbody tr + tr { border-top: 1px solid var(--hair); }
+  table.bt--stack td { padding: 2px 2px; text-align: left !important; white-space: normal !important; }
+  table.bt--stack td[data-l]::before { content: attr(data-l) ": "; font-style: italic; color: var(--ink-2); }
+  table.bt--stack td:first-child::before { content: none; }
+  table.bt--stack td:first-child { font-size: 1.06em; }
+}
+
+/* ---------- colophon under the last page ---------- */
+
+.colophon {
+  padding: 8px 16px 36px; text-align: center;
+  font-family: var(--ui); font-size: 13px; color: var(--bar-ink-2);
+}
+.colophon p { margin: 0; }
+
+/* the author footnote uses a star, not a number */
+.footnotes li.fn-star { list-style: none; margin-left: -1.2em; }
