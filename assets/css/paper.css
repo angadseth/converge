@@ -1,0 +1,256 @@
+/* Converge: the paper. Typesetting that follows a LaTeX article, one sheet per section. */
+
+.doc { padding: 24px 16px 64px; }
+
+.sheet {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--page-w) * var(--zoom));
+  margin: 0 auto 24px;
+  padding: 64px var(--page-pad-x) 56px;
+  background: var(--page);
+  color: var(--ink);
+  box-shadow: var(--sheet-shadow);
+  counter-reset: footnote;
+}
+
+/* running head and folio, like a journal page */
+.sheet__head {
+  display: flex; justify-content: space-between; gap: 16px;
+  margin: -28px 0 28px;
+  font-size: 0.74em; font-style: italic; color: var(--ink-3);
+}
+.sheet__folio {
+  margin-top: 40px; text-align: center; font-size: 0.8em; color: var(--ink-2);
+  font-variant-numeric: lining-nums;
+}
+
+/* the vertical preprint stamp in the left margin of page 1 */
+.stamp {
+  position: absolute; left: 30px; top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap;
+  font-size: 22px; letter-spacing: 0.02em;
+  color: #8e8e8e;
+  pointer-events: none;
+  user-select: none;
+}
+:root[data-theme="dark"] .stamp { color: #6c6c6c; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .stamp { color: #6c6c6c; } }
+
+/* ---------- title block (NeurIPS style: title between two rules) ---------- */
+
+.title {
+  margin: 0 0 22px;
+  padding: 18px 0 16px;
+  border-top: 4px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+  font-size: 1.62em;
+  line-height: 1.22;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+.title__sub {
+  display: block; margin-top: 10px;
+  font-size: 0.56em; font-weight: 400; font-style: italic; letter-spacing: 0;
+}
+
+.authors { text-align: center; margin: 0 0 30px; line-height: 1.35; }
+.authors__name { font-weight: 700; font-variant: small-caps; font-size: 1.04em; letter-spacing: 0.02em; }
+.authors__aff { display: block; font-size: 0.9em; }
+.authors__mail { display: block; font-family: var(--mono); font-size: 0.82em; margin-top: 2px; }
+.authors sup { font-size: 0.6em; }
+
+.abstract { margin: 0 auto 26px; max-width: 88%; font-size: 0.92em; }
+.abstract__h { margin: 0 0 6px; text-align: center; font-size: 1em; font-weight: 700; }
+.abstract p { margin: 0; text-align: justify; hyphens: auto; }
+.abstract p + p { text-indent: 1.5em; }
+.keywords { margin: 12px 0 0; font-size: 0.95em; text-align: left; }
+.keywords b { font-style: normal; }
+
+/* ---------- headings ---------- */
+
+.sec {
+  margin: 1.5em 0 0.6em;
+  font-size: 1.3em; line-height: 1.25; font-weight: 700;
+  display: flex; gap: 0.9em;
+}
+.sheet > .sec:first-of-type, .sheet__head + .sec { margin-top: 0; }
+.subsec { margin: 1.3em 0 0.5em; font-size: 1.08em; line-height: 1.3; font-weight: 700; display: flex; gap: 0.8em; }
+.sec__n, .subsec__n { flex: none; font-variant-numeric: lining-nums; }
+.para { font-weight: 700; margin-right: 0.5em; }       /* \paragraph{} run-in heading */
+
+/* ---------- prose ---------- */
+
+.prose p { margin: 0; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+.prose p + p { text-indent: 1.5em; }
+.prose > * + p:not(:first-child) { margin-top: 0; }
+.prose .noindent, .prose p.noindent { text-indent: 0; }
+.prose > ul, .prose > ol { margin: 0.5em 0; padding-left: 1.6em; }
+.prose li { margin: 0.2em 0; text-align: left; }
+.prose li::marker { color: var(--ink); }
+.prose ul { list-style: none; }
+.prose ul > li { position: relative; }
+.prose ul > li::before { content: "\2022"; position: absolute; left: -1em; }
+
+.prose em, .prose i { font-style: italic; }
+.prose strong, .prose b { font-weight: 700; }
+.sc { font-variant: small-caps; letter-spacing: 0.02em; }
+.nowrap { white-space: nowrap; }
+
+code, kbd, .tt {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  letter-spacing: 0;
+  hyphens: none;
+}
+pre {
+  margin: 0.8em 0; padding: 10px 14px; overflow-x: auto;
+  background: var(--fill); font-family: var(--mono); font-size: 0.8em; line-height: 1.45;
+  text-align: left;
+}
+
+/* quotes from official documents */
+.quote { margin: 0.8em 2em; font-size: 0.95em; text-align: justify; hyphens: auto; }
+.quote p { text-indent: 0 !important; }
+
+/* inline citation markers and footnote markers */
+a.cite { color: var(--cite); white-space: nowrap; }
+a.fnref { color: var(--link); font-size: 0.7em; vertical-align: super; line-height: 0; padding: 0 1px; }
+
+.footnotes {
+  margin-top: 32px; padding-top: 6px; font-size: 0.78em; line-height: 1.4; color: var(--ink);
+  position: relative;
+}
+.footnotes::before { content: ""; position: absolute; top: 0; left: 0; width: 34%; border-top: 1px solid var(--rule); }
+.footnotes ol { margin: 0; padding-left: 1.2em; }
+.footnotes li { margin: 0.25em 0; text-align: justify; hyphens: auto; }
+.footnotes li::marker { font-size: 0.85em; }
+
+/* ---------- display equations, numbered on the right ---------- */
+
+.eq {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
+  margin: 0.9em 0;
+}
+.eq__body { text-align: center; font-size: 1.02em; line-height: 1.6; overflow-x: auto; }
+.eq__n { font-variant-numeric: lining-nums; }
+.eq var, .math var { font-style: italic; }
+.eq .op, .math .op { font-style: normal; padding: 0 0.12em; }
+.eq sub, .math sub { font-size: 0.72em; }
+.where { margin: 0.2em 0 0.8em; font-size: 0.95em; }
+.where td { vertical-align: top; padding: 1px 10px 1px 0; }
+.where td:first-child { white-space: nowrap; text-align: right; }
+
+/* ---------- theorem-like environments ---------- */
+
+.thm { margin: 1.1em 0; padding: 12px 16px; border: 1px solid var(--rule); }
+.thm__h { font-weight: 700; }
+.thm__name { font-weight: 400; }
+.thm__body { font-style: italic; }
+.thm__body em { font-style: normal; }
+.proof { margin: 0.5em 0 0; font-size: 0.95em; }
+.proof__h { font-style: italic; margin-right: 0.3em; }
+.qed {
+  display: inline-block; width: 0.62em; height: 0.62em; margin-left: 0.4em;
+  border: 1px solid currentColor; vertical-align: -0.02em; float: right; margin-top: 0.42em;
+}
+.proof::after { content: ""; display: block; clear: both; }
+
+.remark { margin: 1em 0; }
+.remark__h { font-style: italic; }
+.remark p { margin: 0; text-align: justify; hyphens: auto; }
+
+/* a trap: same idiom, set off by a double rule like a boxed warning in a manual */
+.trap { margin: 1.1em 0; padding: 10px 14px; border-left: 3px double var(--rule); }
+.trap__h { font-weight: 700; font-variant: small-caps; letter-spacing: 0.03em; margin-right: 0.35em; }
+.trap p { margin: 0; text-align: justify; hyphens: auto; }
+
+/* ---------- algorithm (algorithmic package look) ---------- */
+
+.algo { margin: 1.2em 0; border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); }
+.algo__cap { padding: 4px 0; border-bottom: 1px solid var(--rule); }
+.algo__cap b { margin-right: 0.35em; }
+.algo ol {
+  margin: 0; padding: 6px 0 8px; list-style: none; counter-reset: ln;
+  font-size: 0.93em; line-height: 1.45;
+}
+.algo li { counter-increment: ln; position: relative; padding-left: 2.6em; text-align: left; }
+.algo li::before {
+  content: counter(ln) ":"; position: absolute; left: 0; width: 1.9em; text-align: right;
+  font-size: 0.8em; top: 0.18em; color: var(--ink-2); font-variant-numeric: lining-nums;
+}
+.algo .in1 { padding-left: 4.2em; }
+.algo .in2 { padding-left: 5.8em; }
+.algo .kw { font-weight: 700; }
+.algo .cm { font-style: italic; color: var(--ink-2); }
+.algo .cm::before { content: "\25B7\00a0"; font-style: normal; }
+
+/* ---------- tables (booktabs: no vertical rules) ---------- */
+
+.tbl { margin: 1.2em 0; }
+.tbl__cap { margin: 0 0 6px; font-size: 0.92em; text-align: left; }
+.tbl__cap b, .fig__cap b { font-weight: 400; }
+.tbl__wrap { overflow-x: auto; }
+table.bt {
+  width: 100%; border-collapse: collapse; font-size: 0.86em; line-height: 1.35;
+  border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule);
+}
+table.bt th, table.bt td { padding: 5px 8px; text-align: left; vertical-align: top; }
+table.bt thead th { font-weight: 700; border-bottom: 1px solid var(--rule); vertical-align: bottom; }
+table.bt tbody tr.mid td { border-top: 1px solid var(--rule); }
+table.bt th:first-child, table.bt td:first-child { padding-left: 2px; }
+table.bt td.num, table.bt th.num { text-align: right; font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+table.bt .muted { color: var(--ink-3); }
+table.bt tbody tr + tr td { border-top: 1px solid transparent; }
+table.bt.bt--rows tbody tr + tr td { border-top: 1px solid var(--hair); }
+
+/* course swatches, as in a plot legend */
+.sw { display: inline-block; width: 0.8em; height: 0.8em; margin-right: 0.35em; vertical-align: -0.05em; border-radius: 1px; }
+.sw--mlf { background: var(--c-mlf); }
+.sw--mlt { background: var(--c-mlt); }
+.sw--mlp { background: var(--c-mlp); }
+.sw--proj { background: var(--c-proj); }
+
+/* ---------- figures ---------- */
+
+.fig { margin: 1.4em 0; }
+.fig__cap { margin: 8px 0 0; font-size: 0.9em; text-align: justify; hyphens: auto; }
+.fig__box { position: relative; }
+
+/* ---------- references ---------- */
+
+.refs { margin: 0; padding: 0; list-style: none; font-size: 0.86em; line-height: 1.4; }
+.refs li { display: grid; grid-template-columns: 2.6em 1fr; gap: 0 0.4em; margin: 0 0 0.55em; }
+.refs .lbl { text-align: right; color: var(--ink); }
+.refs .t { font-style: italic; }
+.refs .note { color: var(--ink-2); }
+.refs .url { font-family: var(--mono); font-size: 0.92em; word-break: break-all; }
+.refs li:target { outline: 1px dashed var(--cite); outline-offset: 3px; }
+.refs__h { margin: 1.1em 0 0.4em; font-size: 0.95em; font-weight: 700; }
+
+/* ---------- small screens: the page becomes the screen ---------- */
+
+@media (max-width: 860px) {
+  :root { --page-pad-x: 22px; }
+  .doc { padding: 10px 0 40px; }
+  .sheet { margin-bottom: 10px; padding-top: 40px; padding-bottom: 36px; box-shadow: none; }
+  .sheet__head { margin: -18px 0 18px; }
+  .stamp {
+    position: static; transform: none; display: block; margin: -14px 0 18px;
+    font-size: 12px; text-align: center; white-space: normal;
+  }
+  .abstract { max-width: none; }
+  .quote { margin: 0.8em 1em; }
+}
+@media (max-width: 560px) {
+  :root { --fs: calc(17.5px * var(--zoom)); --page-pad-x: 16px; }
+  .prose p, .abstract p, .fig__cap, .remark p, .trap p, .footnotes li { text-align: left; }
+  .title { font-size: 1.42em; }
+  .sec { font-size: 1.2em; gap: 0.7em; }
+  .thm { padding: 10px 12px; }
+  .eq { grid-template-columns: 1fr; }
+  .eq__n { justify-self: end; margin-top: -0.4em; }
+}
