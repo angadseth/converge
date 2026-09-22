@@ -164,12 +164,15 @@ if (checkLinks) {
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
         const r = await fetch(l, { redirect: "follow", headers: { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/128 Safari/537.36" }, signal: AbortSignal.timeout(25000) });
-        if (r.status < 400 || r.status === 403 && /medium\.com|kaggle\.com/.test(l)) return [l, r.status];
+        if (r.status < 400) return [l, r.status];
+        if (r.status === 403 && /medium\.com/.test(l)) return [l, "bot wall (403 to scripts; opens in a browser)"];
         if (attempt) return [l, r.status];
       } catch (e) { if (attempt) return [l, "ERR " + e.name]; }
     }
   }));
-  const bad = results.filter(([, s]) => typeof s !== "number" || s >= 400);
+  const walled = results.filter(([, s]) => typeof s === "string" && s.startsWith("bot wall"));
+  if (walled.length) console.log("  note " + walled.length + " link(s) behind a bot wall: " + walled.map(w => w[0]).join(", "));
+  const bad = results.filter(([, s]) => !(typeof s === "string" && s.startsWith("bot wall")) && (typeof s !== "number" || s >= 400));
   ok(bad.length === 0, `${links.length} external links respond${bad.length ? " -> " + bad.map(b => b.join(" ")).join(", ") : ""}`);
   await ctx3.close();
 }
