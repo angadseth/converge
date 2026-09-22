@@ -139,3 +139,10 @@
 .calc__plot { width: 100%; height: auto; margin: 6px 0 2px; font-family: var(--serif); }
 .calc__need { margin: 8px 0 0; }
 .calc__need table.bt { font-size: 0.84em; }
+
+/* ---------- Figure 4: the calendar ---------- */
+
+.cal { border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); padding: 12px 0 10px; }
+.cal__next { margin: 0 0 6px; font-size: 0.95em; }
+.cal__plot { width: 100%; height: auto; font-family: var(--serif); margin: 4px 0 8px; }
+.cal__table { font-size: 0.84em; }
