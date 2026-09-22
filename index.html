@@ -472,6 +472,90 @@
   <p class="sheet__folio">5</p>
 </article>
 
+<!-- ============================ PAGE 6: MLP ============================ -->
+<article class="sheet" id="p6">
+  <div class="sheet__head" aria-hidden="true"><span>On the Convergence of Students</span><span>Machine Learning Practice</span></div>
+
+  <h2 class="sec" id="mlp"><span class="sec__n">6</span><span><span class="sw sw--mlp" aria-hidden="true"></span>Machine Learning Practice (MLP)</span></h2>
+  <div class="prose">
+    <p>MLP is taught by Ashish Tendulkar of Google Research. The course page calls it the &ldquo;companion course to the ML Theory course&rdquo;, one that &ldquo;introduces the student to scikit-learn &hellip; to provide hands-on problem solving experience for all the methods and models learnt in the Theory course&rdquo; <a class="cite" href="#ref-3">[3]</a>. The playlist has 98 videos, about 28 hours <a class="cite" href="#ref-11">[11]</a>, and many of them are notebooks run live on real datasets: California housing, MNIST, MovieLens.</p>
+  </div>
+
+  <h3 class="subsec" id="mlp-weeks"><span class="subsec__n">6.1</span><span>The twelve weeks</span></h3>
+  <div class="tbl" id="tab-mlp">
+    <p class="tbl__cap"><b>Table 8:</b> MLP week by week, from the lecture titles in the official playlist <a class="cite" href="#ref-11">[11]</a>. The course page's list <a class="cite" href="#ref-3">[3]</a> no longer matches the lectures (it shows Graph Theory for Week&nbsp;2), so trust the portal.</p>
+    <div class="tbl__wrap">
+      <table class="bt bt--weeks">
+        <thead><tr><th class="num">Wk</th><th>Topics</th><th>In scikit-learn terms</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>pandas: Series and DataFrames, selecting, dropping, summary statistics</td><td>Before any model</td></tr>
+          <tr><td class="num">2</td><td>Data loading, preprocessing, missing values, categorical and numeric transformers, scaling, outliers, feature selection, PCA</td><td><code>SimpleImputer</code>, <code>OneHotEncoder</code>, <code>StandardScaler</code></td></tr>
+          <tr><td class="num">3</td><td>Chaining transformers into pipelines; composite transformers; class imbalance</td><td><code>Pipeline</code>, <code>ColumnTransformer</code></td></tr>
+          <tr><td class="num">4</td><td>A tour of the models: linear and polynomial regression, evaluation, regularisation, tuning, Naive Bayes, k-NN, SVM, trees, bagging, boosting, neural networks</td><td><code>GridSearchCV</code></td></tr>
+          <tr><td class="num">5</td><td>Regression end to end on California housing: baseline, SGD, k-NN, trees, ensembles, MLP regressor</td><td><code>SGDRegressor</code></td></tr>
+          <tr><td class="num">6</td><td>Classification on MNIST and others: perceptron, logistic and softmax regression, ridge classifier, Naive Bayes, k-NN, SVC, trees, ensembles</td><td><code>LogisticRegression</code>, <code>SVC</code></td></tr>
+          <tr><td class="num">7</td><td>Large-scale learning; confusion matrix, accuracy, precision, recall, F1, multiclass metrics</td><td><code>classification_report</code></td></tr>
+          <tr><td class="num">8</td><td class="muted">Not in the public playlist; see your portal</td><td></td></tr>
+          <tr><td class="num">9</td><td>Clustering (k-means, hierarchical); an end-to-end project from framing to fine-tuning</td><td><code>KMeans</code></td></tr>
+          <tr><td class="num">10</td><td>Recommender systems: content-based and collaborative filtering, matrix factorisation</td><td>MovieLens</td></tr>
+          <tr><td class="num">11</td><td>Time series in pandas: resampling, decomposition, stationarity</td><td>pandas</td></tr>
+          <tr><td class="num">12</td><td>Transfer learning; a recap of neural networks</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="subsec" id="mlp-marks"><span class="subsec__n">6.2</span><span>How MLP is marked</span></h3>
+  <div class="prose">
+    <p class="noindent">MLP has no quizzes. Its score comes from weekly assignments, two online remote-proctored programming exams (OPPE&nbsp;1 and OPPE&nbsp;2), three Kaggle assignments (KA) and the in-person end term <a class="cite" href="#ref-5">[5]</a>:</p>
+  </div>
+  <div class="eq" id="eq-3">
+    <div class="eq__body math"><var>T</var> = 0.1&thinsp;<var>GAA</var> + 0.3&thinsp;<var>F</var> + 0.2&thinsp;<var>OPPE</var><sub>1</sub> + 0.2&thinsp;<var>OPPE</var><sub>2</sub> + 0.2&thinsp;<var>KA</var></div>
+    <div class="eq__n">(3)</div>
+  </div>
+  <table class="where">
+    <tr><td>where</td><td><var>GAA</var> is the best 10 of Weeks 1&ndash;10 and Mock Quiz&nbsp;1, as in MLF, and <var>KA</var> is the average of the three Kaggle assignments.</td></tr>
+  </table>
+  <div class="prose">
+    <p>Read the weights once more: 60% of MLP is the two OPPEs and the Kaggle assignments, all of them code. Only 30% is the end term. The course is a programming course in the way it is marked, not only in what it teaches.</p>
+  </div>
+
+  <div class="thm" id="prop-mlp">
+    <p class="thm__body"><span class="thm__h">Proposition 3</span> <span class="thm__name">(Getting an MLP grade)</span>. You may sit the MLP end term if the average of your best 5 of 8 scores (Weeks 1&ndash;7 and Mock Quiz&nbsp;1) is at least 40; no quiz is needed. To receive a grade you must then sit the end term <em>and</em> score at least 40/100 in at least one of the two OPPEs. OPPE&nbsp;1 is scheduled only if you complete the System Compatibility Test (SCT) first.</p>
+    <p class="proof"><span class="proof__h">Proof.</span> Grading document <a class="cite" href="#ref-5">[5]</a>, MLP section and the OPPE eligibility rules.<span class="qed" aria-hidden="true"></span></p>
+  </div>
+
+  <div class="tbl" id="tab-oppe">
+    <p class="tbl__cap"><b>Table 9:</b> What happens after the OPPEs and the end term, from the grading document's own table <a class="cite" href="#ref-5">[5]</a>. &ldquo;Best OPPE&rdquo; is the better of your two scores.</p>
+    <div class="tbl__wrap">
+      <table class="bt bt--rows bt--stack">
+        <thead><tr><th>OPPEs</th><th>End term</th><th>Total <var>T</var></th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Absent or ineligible</td><td data-l="End term">Absent or ineligible</td><td data-l="Total T">&ndash;</td><td data-l="Result"><b>U</b>: repeat the course</td></tr>
+          <tr><td>Absent from both</td><td data-l="End term">Present</td><td data-l="Total T" class="num">&ge; 35</td><td data-l="Result"><b>I_OP</b>: take the OPPEs alone next term</td></tr>
+          <tr><td>Absent from both</td><td data-l="End term">Present</td><td data-l="Total T" class="num">&lt; 35</td><td data-l="Result"><b>U</b></td></tr>
+          <tr><td>Best OPPE below 40</td><td data-l="End term">Present</td><td data-l="Total T" class="num">&ge; 40</td><td data-l="Result"><b>I_OP</b>: take the OPPEs alone next term</td></tr>
+          <tr><td>Best OPPE below 40</td><td data-l="End term">Present</td><td data-l="Total T" class="num">&lt; 40</td><td data-l="Result"><b>U</b></td></tr>
+          <tr><td>Best OPPE below 40</td><td data-l="End term">Absent</td><td data-l="Total T">&ndash;</td><td data-l="Result"><b>I_BOTH</b>: OPPEs and end term next term</td></tr>
+          <tr><td>Best OPPE 40 or more</td><td data-l="End term">Absent</td><td data-l="Total T">&ndash;</td><td data-l="Result"><b>I</b>: the end term alone next term</td></tr>
+          <tr><td>Best OPPE 40 or more</td><td data-l="End term">Present</td><td data-l="Total T">&ndash;</td><td data-l="Result">Graded on <var>T</var></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Whenever you redo the OPPEs, both are scheduled again, and the rest of your marks carry over. You can always choose to repeat the whole course instead <a class="cite" href="#ref-5">[5]</a>.</p>
+  </div>
+
+  <h3 class="subsec" id="mlp-ka"><span class="subsec__n">6.3</span><span>The Kaggle assignments</span></h3>
+  <div class="prose">
+    <p>Each KA is a small Kaggle competition with a notebook you submit and a peer review after it. In May 2026 they ran 10&ndash;22 July, 27 July&ndash;4 August and 10&ndash;18 August, each with a peer-review deadline a few days later <a class="cite" href="#ref-5">[5]</a>. Together they are 20% of the course, as much as either OPPE.</p>
+    <p><span class="para">What I learned doing them.</span>Three habits mattered more than the choice of model. First, <i>optimise the metric you are scored on</i>: when a task is scored by F1, the probability threshold you cut at moves the score more than switching models does, and 0.5 is rarely the right cut. Second, <i>distrust a perfect validation score</i>: in one assignment, random cross-validation gave nearly every model a perfect score, yet the test rows came from whole groups that never appear in training. A split that held out entire groups showed the real spread between models. Third, <i>keep the notebook boring</i>: give it the exact title the instructions ask for (its URL comes from the title and goes into the submission form, so never rename it afterwards), and make sure it always writes <code>submission.csv</code>.</p>
+  </div>
+
+  <p class="sheet__folio">6</p>
+</article>
+
 </main>
 
 <footer class="colophon">
