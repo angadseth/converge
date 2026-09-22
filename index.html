@@ -147,6 +147,100 @@
   <p class="sheet__folio">1</p>
 </article>
 
+<!-- ============================ PAGE 2 ============================ -->
+<article class="sheet" id="p2">
+  <div class="sheet__head" aria-hidden="true"><span>On the Convergence of Students</span><span>Introduction</span></div>
+
+  <h2 class="sec" id="intro"><span class="sec__n">1</span><span>Introduction</span></h2>
+  <div class="prose">
+    <p>MLF, MLT and MLP are three different kinds of course that happen to share the letters ML. MLF is a mathematics course: no model is trained, and nearly every question is a calculation you do by hand. MLT is a theory course about algorithms: you learn what each model assumes, what it minimises and how it is trained, and the exams test whether you can reason about that on paper. MLP is a programming course: you do the same things in Python with scikit-learn, and it is assessed through code and numbers, not derivations <a class="cite" href="#ref-1">[1</a>, <a class="cite" href="#ref-2">2</a>, <a class="cite" href="#ref-3">3]</a>.</p>
+    <p>The MLP Project is different again. It runs as a real Kaggle competition among students. You must beat a score cutoff, submit only from one named notebook, and then defend your work in two vivas with an industry examiner <a class="cite" href="#ref-4">[4</a>, <a class="cite" href="#ref-6">6]</a>.</p>
+    <p>Most of the confusion around these courses comes from treating them as one subject. They reward different habits. MLF rewards solving problems by hand every single week. MLT rewards being able to derive a method and explain why it works. MLP rewards clean code that produces exactly the number the grader expects. Section&nbsp;<a href="#fit">2</a> shows how the courses depend on each other, Sections&nbsp;<a href="#mlf">4</a>&ndash;<a href="#project">7</a> take each course in turn, and Section&nbsp;<a href="#assess">8</a> gives a method for every kind of assessment.</p>
+    <p><span class="para">How to read this.</span>If you are taking MLF and MLT together, which is the usual first machine learning term, read Sections&nbsp;<a href="#fit">2</a>&ndash;<a href="#mlt">5</a> and <a href="#assess">8</a>. If you are taking MLP, read Sections&nbsp;<a href="#mlp">6</a> and <a href="#assess">8</a>. If you have the project, Section&nbsp;<a href="#project">7</a> is written for you. The marks calculator is in Section&nbsp;<a href="#calc">9</a>, the term calendar in Section&nbsp;<a href="#calendar">10</a>, every resource in Section&nbsp;<a href="#resources">11</a>, and short answers to common doubts in Appendix&nbsp;<a href="#doubts">A</a>.</p>
+  </div>
+
+  <div class="remark">
+    <p><span class="remark__h">Remark 1.1 (Sep 2026 term).</span> Course registration for the Sep 2026 term runs on 22 and 23 September 2026, the term starts on Friday 2 October, and the end term is on Sunday 10 January 2027 <a class="cite" href="#ref-7">[7]</a>. The course-level details for Sep 2026 (assignment deadlines, Kaggle assignment and project dates) come out in that term's grading document. Until then this guide quotes the May 2026 document <a class="cite" href="#ref-5">[5]</a>, and says so wherever a date or a weight is involved.</p>
+  </div>
+
+  <h2 class="sec" id="fit"><span class="sec__n">2</span><span>How the courses fit together</span></h2>
+
+  <div class="thm" id="prop-requisites">
+    <p class="thm__body"><span class="thm__h">Proposition 1</span> <span class="thm__name">(Requisites)</span>. MLF is a <em>co-requisite</em> of MLT: take it before MLT or in the same term. MLT is a <em>prerequisite</em> of MLP: finish it before MLP. MLP is a co-requisite of the MLP Project and of Tools in Data Science.</p>
+    <p class="proof"><span class="proof__h">Proof.</span> The requisites table in the May 2026 grading document <a class="cite" href="#ref-5">[5]</a>. The course pages list them a little differently (the MLP page names both MLF and MLT as prerequisites <a class="cite" href="#ref-3">[3]</a>); where they disagree, go by the grading document, which is rewritten every term.<span class="qed" aria-hidden="true"></span></p>
+  </div>
+
+  <figure class="fig" id="fig-requisites">
+    <svg class="dag" viewBox="0 0 480 214" role="img" aria-labelledby="fig2-t">
+      <title id="fig2-t">MLF is a co-requisite of MLT. MLT is a prerequisite of MLP. MLP is a co-requisite of the MLP Project and of TDS.</title>
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" style="fill: var(--ink)"/>
+        </marker>
+      </defs>
+      <g style="stroke: var(--ink); fill: none" stroke-width="1.3">
+        <path d="M72 106 H126" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+        <path d="M204 106 H258" marker-end="url(#arr)"/>
+        <path d="M336 96 C352 96 356 58 372 58" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+        <path d="M336 116 C352 116 356 154 372 154" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+      </g>
+      <g style="fill: var(--ink-2)" font-size="12" font-style="italic" text-anchor="middle">
+        <text x="99" y="96">co-req.</text>
+        <text x="231" y="96">prereq.</text>
+        <text x="346" y="44">co-req.</text>
+        <text x="346" y="180">co-req.</text>
+      </g>
+      <g font-size="15" font-weight="700" text-anchor="middle">
+        <rect x="2" y="86" width="70" height="40" rx="4" style="fill: var(--page); stroke: var(--c-mlf)" stroke-width="2.2"/>
+        <text x="37" y="111" style="fill: var(--ink)">MLF</text>
+        <rect x="132" y="86" width="72" height="40" rx="4" style="fill: var(--page); stroke: var(--c-mlt)" stroke-width="2.2"/>
+        <text x="168" y="111" style="fill: var(--ink)">MLT</text>
+        <rect x="264" y="86" width="72" height="40" rx="4" style="fill: var(--page); stroke: var(--c-mlp)" stroke-width="2.2"/>
+        <text x="300" y="111" style="fill: var(--ink)">MLP</text>
+        <rect x="378" y="38" width="100" height="40" rx="4" style="fill: var(--page); stroke: var(--c-proj)" stroke-width="2.2"/>
+        <text x="428" y="63" style="fill: var(--ink)">MLP Project</text>
+        <rect x="378" y="134" width="100" height="40" rx="4" style="fill: var(--page); stroke: var(--ink-3)" stroke-width="1.6"/>
+        <text x="428" y="159" style="fill: var(--ink)">TDS</text>
+      </g>
+      <g font-size="12" style="fill: var(--ink-2)">
+        <path d="M4 204 H34" style="stroke: var(--ink)" stroke-width="1.3" marker-end="url(#arr)"/>
+        <text x="42" y="208">must come first</text>
+        <path d="M170 204 H200" style="stroke: var(--ink)" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#arr)"/>
+        <text x="208" y="208">the same term is fine</text>
+      </g>
+    </svg>
+    <figcaption class="fig__cap"><b>Figure 2:</b> What depends on what, from the grading document <a class="cite" href="#ref-5">[5]</a>. The only hard ordering in the chain is MLT before MLP. Everything else can share a term.</figcaption>
+  </figure>
+
+  <h3 class="subsec" id="order"><span class="subsec__n">2.1</span><span>Which order to take them in</span></h3>
+  <div class="prose">
+    <p>The grading document gives its own plans for a student doing only the Data Science diploma <a class="cite" href="#ref-5">[5]</a>. Table&nbsp;<a href="#tab-plans">2</a> copies the three that use the Business Analytics track; the Deep Learning track swaps BA for the Introduction to Deep Learning and Generative AI course and its project. Look at what the three plans agree on: MLF comes in the first term, MLP always comes after MLT, and TDS always sits in the same term as MLP.</p>
+  </div>
+
+  <div class="tbl" id="tab-plans">
+    <p class="tbl__cap"><b>Table 2:</b> Single-diploma plans from the May 2026 grading document <a class="cite" href="#ref-5">[5]</a>, with its own labels. Machine learning courses in bold.</p>
+    <div class="tbl__wrap">
+      <table class="bt bt--rows bt--stack">
+        <thead><tr><th>Plan</th><th>Term 1</th><th>Term 2</th><th>Term 3</th><th>Term 4</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Plan"><b>2 terms</b><br><span class="muted">&ldquo;not recommended unless you have some background&rdquo;</span></td><td data-l="Term 1"><b>MLF</b>, <b>MLT</b>, BDM, BDM project</td><td data-l="Term 2"><b>MLP</b>, BA, TDS, <b>MLP project</b></td><td data-l="Term 3" class="muted">&ndash;</td><td data-l="Term 4" class="muted">&ndash;</td></tr>
+          <tr><td data-l="Plan"><b>3 terms</b><br><span class="muted">&ldquo;moderate pathway&rdquo;</span></td><td data-l="Term 1"><b>MLF</b>, BDM, BDM project</td><td data-l="Term 2"><b>MLT</b>, BA</td><td data-l="Term 3"><b>MLP</b>, TDS, <b>MLP project</b></td><td data-l="Term 4" class="muted">&ndash;</td></tr>
+          <tr><td data-l="Plan"><b>4 terms</b><br><span class="muted">&ldquo;extremely comfortable and relaxed&rdquo;</span></td><td data-l="Term 1"><b>MLF</b>, BDM</td><td data-l="Term 2"><b>MLT</b>, BDM project</td><td data-l="Term 3"><b>MLP</b>, TDS</td><td data-l="Term 4">BA, <b>MLP project</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="remark">
+    <p><span class="remark__h">Remark 2.1 (MLF and MLT in the same term).</span> This is the most common pairing, and it has one wrinkle. MLT starts with PCA in its first week <a class="cite" href="#ref-2">[2]</a>, while the MLF lectures reach eigenvalues in Week&nbsp;4 and PCA in Week&nbsp;7 <a class="cite" href="#ref-9">[9]</a>. For about a month, MLT runs ahead of the maths it uses. Watch the MLF eigenvalue lectures early, or keep 3Blue1Brown's short chapter on eigenvectors <a class="cite" href="#ref-31">[31]</a> at hand, and the gap closes.</p>
+  </div>
+  <div class="remark">
+    <p><span class="remark__h">Remark 2.2 (MLP and its project in the same term).</span> The project guideline says it plainly: &ldquo;If you are new to ML, you should complete the MLP course in one term and the MLP project in a later term.&rdquo; The milestones do not follow the course's week order, so taking both together means learning some topics before the lectures reach them <a class="cite" href="#ref-6">[6]</a>.</p>
+  </div>
+
+  <p class="sheet__folio">2</p>
+</article>
+
 </main>
 
 <footer class="colophon">

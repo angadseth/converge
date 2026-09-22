@@ -1,0 +1,9 @@
+{
+  "name": "converge-checks",
+  "private": true,
+  "description": "Dev-only browser checks for Converge. Not part of the site.",
+  "type": "module",
+  "dependencies": {
+    "playwright": "1.62.1"
+  }
+}
