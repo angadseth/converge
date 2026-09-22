@@ -2,13 +2,16 @@
 
 **Live: https://angadseth.github.io/converge/**
 
-A senior's field guide to the machine learning courses of the IIT Madras BS Diploma in Data Science:
+The field guide to the machine learning courses of the IIT Madras BS Diploma in Data Science:
 **Machine Learning Foundations (MLF)**, **Machine Learning Techniques (MLT)**, **Machine Learning Practice (MLP)**
-and the **MLP Project**.
+and the **MLP Project**. A sibling of the [TDS Field Guide](https://angadseth.github.io/tds-field-guide/),
+with its own look: plot paper, a viridis-lime highlighter, and a live gradient-descent plot as the hero.
 
-It is written as a research paper in a PDF viewer, because that is what machine learning looks like:
-Computer Modern type, numbered equations for the grading formulas, "Proposition and Proof" boxes where the proof is
-the official source, and a references section that holds every resource.
+Two editions, same content:
+
+- **Website** (`/`): the main guide, 12 chapters with a sticky chapter index.
+- **Paper edition** (`/paper/`): the first version, typeset as an arXiv paper in a PDF viewer. Kept as a backup
+  (git tag `v1-paper`). It has the full numbered references list.
 
 What is inside:
 
@@ -35,9 +38,10 @@ Plain HTML, CSS and JavaScript. No build step. GitHub Pages serves `main`.
 ```bash
 python -m http.server 8777 --bind 127.0.0.1   # serve locally
 cd tests && npm install
-node check.mjs                                  # layout in 12 viewport/theme pairs, links, maths, widgets
+node check.mjs                                  # both editions: 12 viewport/theme pairs each, maths, widgets
 node check.mjs https://angadseth.github.io/converge/ --links
-node pages.mjs light 1366                       # screenshot every page for review
+node sections.mjs light 1366                    # screenshot every website section
+node pages.mjs light 1366 http://127.0.0.1:8777/paper/   # every page of the paper edition
 ```
 
 Sources for every fact: [`docs/sources.md`](docs/sources.md).
