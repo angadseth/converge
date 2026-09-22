@@ -48,6 +48,8 @@
   var DAY = 86400000;
   var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   var WK = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  /* labels for narrow screens */
+  var SHORT = { "Registration": "Reg.", "Term starts": "Start", "Drop window": "Drop", "Quiz 1": "Q1", "Quiz 2": "Q2", "OPPE 1": "OPPE1", "OPPE 2": "OPPE2", "End term": "ET", "Results": "Results" };
 
   function d(s) { var p = s.split("-"); return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2])); }
   function today() { var n = new Date(); return new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate())); }
@@ -140,7 +142,8 @@
       var rows = e.also ? [e.row, e.also] : [e.row];
       rows.forEach(function (r) {
         var x = X(d(e.from).getTime()), txt = e.what.replace("Course registration", "Registration").replace("End term results", "Results").replace("Drop course window", "Drop window");
-        var w = txt.length * (narrow ? 5.6 : 6.4);
+        if (narrow) txt = SHORT[txt] || txt;
+        var w = txt.length * (narrow ? 10.5 : 12) * 0.62 + 8;
         var clash = used[r].some(function (u) { return Math.abs(u - x) < w; });
         if (clash) return;
         used[r].push(x);
