@@ -1,0 +1,115 @@
+/* Converge website: interactive pieces. Class names match the shared scripts in assets/js. */
+
+/* ---------- buttons and tabs ---------- */
+.mpl-btn {
+  height: 36px; padding: 0 14px; border: 1px solid var(--ink); background: var(--card); color: var(--ink);
+  font-family: var(--mono); font-size: 13px; border-radius: 0;
+}
+.mpl-btn:hover { background: var(--fill); }
+.mpl-btn[aria-selected="true"], .mpl-btn[aria-pressed="true"] { background: var(--ink); color: var(--card); }
+.calc__tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+
+/* ---------- sliders (Figure 1) ---------- */
+.slider { display: grid; grid-template-columns: 8.2em 1fr 3.2em; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+.slider__lbl { text-align: right; white-space: nowrap; }
+.slider__lbl var { font-style: italic; font-family: var(--serif); font-size: 15px; color: var(--ink); }
+.slider__val { font-family: var(--mono); color: var(--ink); }
+.slider input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 22px; margin: 0; background: transparent; --p: 50%; }
+.slider input[type="range"]::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: linear-gradient(to right, var(--teal) var(--p), var(--rule) var(--p)); }
+.slider input[type="range"]::-moz-range-track { height: 6px; border-radius: 3px; background: linear-gradient(to right, var(--teal) var(--p), var(--rule) var(--p)); }
+.slider input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: -6px; border-radius: 50%; background: var(--card); border: 2px solid var(--teal); }
+.slider input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--card); border: 2px solid var(--teal); }
+.descent__plot { width: 100%; height: auto; aspect-ratio: 624 / 360; cursor: crosshair; touch-action: manipulation; }
+.descent__ctl { display: grid; gap: 4px; margin-top: 10px; }
+.descent__btns { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.descent__log { font-family: var(--ui); font-size: 14px; color: var(--ink-2); }
+@media (max-width: 520px) {
+  .slider { grid-template-columns: 1fr 3em; }
+  .slider__lbl { grid-column: 1 / -1; text-align: left; }
+}
+
+/* ---------- panels that hold a figure ---------- */
+.panel { margin: 1.4em 0; padding: 18px 18px 16px; background: var(--card); border: 1px solid var(--ink); box-shadow: var(--shadow); max-width: 880px; }
+.panel__cap { margin: 12px 0 0; font-family: var(--ui); font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+
+/* ---------- the calendar ---------- */
+.cal__next { margin: 0 0 8px; font-family: var(--ui); font-size: 16px; }
+.cal__next b { font-family: var(--display); font-weight: 800; }
+.cal__plot { width: 100%; height: auto; font-family: var(--mono); margin: 6px 0 10px; }
+table.cal__table { width: 100%; border-collapse: collapse; font-family: var(--ui); font-size: 14.5px; }
+table.cal__table th { text-align: left; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--ink-3); padding: 6px 10px 6px 0; border-bottom: 1.5px solid var(--ink); }
+table.cal__table td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); }
+.cal__more summary { cursor: pointer; font-family: var(--mono); font-size: 13px; color: var(--teal); margin-top: 6px; }
+
+/* ---------- the calculator ---------- */
+.calc__inputs { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 12px; }
+.calc__f { display: grid; gap: 4px; font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
+.calc__f span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.calc__f input, .elig__grid input {
+  width: 100%; min-width: 0; height: 42px; padding: 0 10px; border: 1px solid var(--ink); border-radius: 0;
+  background: var(--bg); color: var(--ink); font-family: var(--mono); font-size: 16px; -moz-appearance: textfield;
+}
+.calc__f input::-webkit-outer-spin-button, .calc__f input::-webkit-inner-spin-button,
+.elig__grid input::-webkit-outer-spin-button, .elig__grid input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.calc__result { margin: 16px 0 4px; min-height: 3.4em; }
+.calc__total { margin: 0; font-family: var(--display); font-weight: 800; font-size: 30px; letter-spacing: -0.01em; line-height: 1.2; }
+.calc__total var { font-style: normal; color: var(--teal); }
+.calc__grade { display: inline-block; margin-left: 12px; padding: 1px 12px; background: var(--lime); color: var(--lime-ink); font-size: 0.8em; vertical-align: 0.08em; }
+.calc__note { margin: 6px 0 0; font-family: var(--ui); font-size: 14.5px; color: var(--ink-2); }
+.calc__plot { width: 100%; height: auto; margin: 8px 0 4px; font-family: var(--mono); }
+.calc__need table { width: 100%; border-collapse: collapse; font-family: var(--ui); font-size: 14.5px; }
+.calc__need th { text-align: left; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--ink-3); padding: 6px 8px 6px 0; border-bottom: 1.5px solid var(--ink); }
+.calc__need td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--rule); }
+.calc__need .num { text-align: right; font-family: var(--mono); font-size: 13.5px; }
+.calc__need .muted { color: var(--ink-3); }
+.calc__need { margin-top: 8px; }
+
+/* ---------- eligibility ---------- */
+.elig__course { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 12px; font-family: var(--ui); font-size: 15.5px; }
+.elig__course label, .elig__quiz { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.elig input[type="radio"], .elig input[type="checkbox"] { accent-color: var(--teal); width: 17px; height: 17px; margin: 0; }
+.elig__grid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; }
+.elig__grid label { display: grid; gap: 4px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); text-align: center; }
+.elig__grid input { text-align: center; padding: 0 4px; }
+.elig__quiz { margin-top: 12px; font-family: var(--ui); font-size: 15.5px; }
+.elig[data-course="mlp"] .elig__quiz { opacity: 0.45; }
+.elig__out { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px; margin-top: 14px; min-height: 2.6em; }
+.elig__detail { font-family: var(--ui); font-size: 15px; color: var(--ink-2); }
+.stamp-verdict:empty { display: none; }
+.stamp-verdict { display: inline-block; padding: 4px 14px; font-family: var(--display); font-weight: 800; font-size: 20px; background: var(--lime); color: var(--lime-ink); letter-spacing: -0.01em; }
+.stamp-verdict[data-ok="false"] { background: transparent; color: var(--red); border: 2px solid var(--red); }
+@media (max-width: 600px) { .elig__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ---------- readiness checklist ---------- */
+.check { margin: 1.2em 0; max-width: 880px; }
+.check__cap { display: none; }
+.check__list { list-style: none; margin: 0; padding: 0; counter-reset: ck; border-top: 1.5px solid var(--ink); }
+.check__list li { counter-increment: ck; border-bottom: 1px solid var(--rule); }
+.check__list label { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; padding: 11px 2px; cursor: pointer; font-family: var(--ui); font-size: 16px; line-height: 1.45; }
+.check__list input {
+  -webkit-appearance: none; appearance: none; width: 22px; height: 22px; margin: 0; border: 1.5px solid var(--ink); background: var(--card);
+  display: grid; place-items: center; cursor: pointer; border-radius: 3px;
+}
+.check__list input::after { content: ""; width: 11px; height: 6px; border-left: 2.5px solid var(--lime-ink); border-bottom: 2.5px solid var(--lime-ink); transform: rotate(-45deg) translate(1px, -1px); opacity: 0; }
+.check__list input:checked { background: var(--lime); border-color: var(--lime-ink); }
+.check__list input:checked::after { opacity: 1; }
+.check__out { margin: 12px 0 0; font-family: var(--display); font-weight: 800; font-size: 21px; min-height: 1.4em; letter-spacing: -0.01em; }
+
+/* ---------- requisites diagram ---------- */
+.dag { width: 100%; height: auto; font-family: var(--ui); }
+
+/* ---------- the corner ticket: next exam ---------- */
+.ticket {
+  position: fixed; right: 18px; bottom: 18px; z-index: 30; display: flex; align-items: stretch;
+  background: var(--lime); color: var(--lime-ink); border: 1.5px solid var(--lime-ink);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.45); transform: rotate(-2deg);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.ticket[hidden] { display: none; }
+.ticket.is-away { opacity: 0; transform: rotate(-2deg) translateY(16px); pointer-events: none; }
+.ticket__go { display: grid; gap: 0; padding: 8px 14px 9px; color: var(--lime-ink); text-decoration: none; }
+.ticket__k { font-family: var(--mono); font-size: 11.5px; }
+.ticket__v { font-family: var(--display); font-weight: 800; font-size: 22px; line-height: 1.05; letter-spacing: -0.01em; }
+.ticket__x { width: 30px; border: 0; border-left: 1.5px dashed var(--lime-ink); background: transparent; color: var(--lime-ink); font-size: 16px; line-height: 1; }
+@media (prefers-reduced-motion: reduce) { .ticket { transition: none; } }
+@media print { .ticket, .top, .toc, .toc-m { display: none !important; } }
