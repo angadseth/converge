@@ -68,6 +68,7 @@
 .abstract p { margin: 0; text-align: justify; hyphens: auto; }
 .abstract p + p { text-indent: 1.5em; }
 .keywords { margin: 12px 0 0; font-size: 0.95em; text-align: left; }
+.abstract p.keywords { text-indent: 0; }
 .keywords b { font-style: normal; }
 
 /* ---------- headings ---------- */
