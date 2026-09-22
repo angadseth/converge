@@ -558,6 +558,77 @@
       </div>
     </section>
 
+    <!-- ======================= 07 PROJECT ======================= -->
+    <section class="chapter" id="project">
+      <div class="chapter__head"><span class="chapter__n">07</span><h2><span class="sw sw--proj" aria-hidden="true"></span>The MLP Project</h2></div>
+      <div class="body">
+        <p class="lead">A real Kaggle competition, 12 to 15 weeks long, where everyone works alone on the same problem. Beat the cutoff, then pass two vivas with an industry examiner.</p>
+        <p class="note">Everything here is from the May 2026 guideline. Read your own term's the day it comes out: the cutoff, the dates and the notebook name change.</p>
+        <p>The problem is a regression or a classification task, new every term. Rules below are from the <a href="https://docs.google.com/document/d/e/2PACX-1vQM1DiqcSLdOdlor6fHgFh9pf7H7qyIzGR69Aek1W-A9dMIXVrfe069kqUkplPMRAiZBBIMJcp9XTCR/pub">MLP Project Guideline</a> for May 2026.</p>
+
+        <h3>Register exactly like this</h3>
+        <p>Most project trouble in the first weeks is registration trouble. The guideline's steps, in order:</p>
+        <ol class="steps">
+          <li><b>Make a Kaggle account and join the competition</b> from the link in the guideline.</li>
+          <li><b>Create a notebook in the competition's Code tab</b> named <code>rollno-notebook-term</code>, all lowercase. May 2026's example: <code>21f1001234-notebook-2026t2</code>.</li>
+          <li><b>Share it with the Kaggle user <code>iitmbscs2008p</code></b> (view access is enough) and keep it private.</li>
+          <li><b>Make a first submission from that notebook.</b> A dummy model is fine.</li>
+          <li><b>Paste the notebook link into the registration form before the deadline.</b> Late registration costs 1 mark a week.</li>
+          <li><b>Check the registration status sheet.</b> It updates every 72 hours.</li>
+          <li><b>Never rename that notebook, and never submit from any other.</b></li>
+        </ol>
+
+        <h3>Rules that end a project</h3>
+      </div>
+      <div class="tbl wide">
+        <table class="ledger">
+          <thead><tr><th>Rule</th><th>What it means in practice</th></tr></thead>
+          <tbody>
+            <tr><td>Only the FinalNotebook counts</td><td>A CSV you upload by hand, or a submission from any other notebook, does not count.</td></tr>
+            <tr><td>At least three different models</td><td>One model only disqualifies the project.</td></tr>
+            <tr><td>No external data</td><td>Train only on the competition's files.</td></tr>
+            <tr><td>CPU only</td><td>Do not switch on Kaggle's GPU or TPU.</td></tr>
+            <tr><td>Keep it private</td><td>Code found public means disqualification.</td></tr>
+            <tr><td>Allowed libraries only</td><td>NumPy, pandas, Matplotlib, scikit-learn, XGBoost, Seaborn, imbalanced-learn, SciPy, regex, LightGBM, Plotly, statsmodels, WordCloud, CatBoost and Python's built-ins. Not TensorFlow, PyTorch, NLTK, pickle, AutoML tools or spaCy.</td></tr>
+            <tr><td>No plagiarism</td><td>Sharing notebooks or snippets, copying anyone, or using outside solutions is malpractice.</td></tr>
+            <tr><td>Five submissions a day</td><td>Unused ones do not carry over.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="body">
+        <h3>Milestones, cutoff and marks</h3>
+        <p>Five milestones, each a form on the course portal. You must submit at least two, and one only counts once the response copy reaches your email. In May 2026 they fell on 21 June, 28 June, 5 July, 12 July and 21 July. The competition closed on 29 July, the cutoff was a leaderboard score below 0.20, and both vivas had to be done by 23 August.</p>
+      </div>
+      <div class="formula">
+        <p class="formula__eq"><var>Final</var> = NB + M + L + S + V &nbsp;&nbsp;(out of 10 + 5 + 30 + 5 + 50 = 100)</p>
+        <p class="formula__where">NB your notebook, marked by the examiner. M all milestones done. L your leaderboard position. S how many submissions you made. V the Level 2 viva.</p>
+      </div>
+      <div class="body">
+        <div class="rule">
+          <span class="rule__tag">Rule</span>
+          <p class="rule__text">You pass if your viva is at least 25/50 and your final mark is at least 50/100. A viva of 15&ndash;24 may still pass with a D or E at the instructor's discretion. Below 15, you repeat the project next term.</p>
+          <p class="rule__src">Source: MLP Project Guideline, May 2026. Jan and May 2026 MLP students were marked out of 105: up to 5 bonus marks by viva batch (Batch 1: +5 and a reattempt, Batch 2: +2 and a reattempt, Batch 3: none).</p>
+        </div>
+        <p>The bonus goes to the earlier viva batches, so being ready early pays. Check your own term's guideline for how batches are assigned.</p>
+
+        <h3>The two vivas</h3>
+        <p><b>Level 1 is a checklist, not a score.</b> The examiner checks that you understood the problem and loaded the data right; that your EDA looks at single features and pairs of features with readable plots; that missing values, scaling and encoding are handled with reusable pipelines applied the same way to train and test; that you engineered features; that you tried at least three models from different families, tuned them and compared them with suitable metrics; and that the notebook is clean and holds your best model.</p>
+        <p><b>Level 2 decides your marks.</b> Concepts, maths, practice and programming. You may be asked to walk through your notebook in five minutes, to explain the <a href="#mlt">five components</a> of any model you used or learned, or to write code on the spot. The examiner can ask about anything in the diploma, MLF, MLT and statistics included. In the guideline's words: "Only using an API (e.g. DecisionTreeClassifier, SVC, etc.) is not sufficient, you should also know how it works internally."</p>
+
+        <h3>What worked for me</h3>
+        <p class="note">No code, no solution. The competition is different every term.</p>
+        <ol class="steps">
+          <li><b>Train on the metric.</b> My term's competition was scored on a log error, so I trained on the logarithm of the target. The training loss became the metric, and a skewed target calmed down.</li>
+          <li><b>Encode big categories carefully.</b> Target encoding only works for columns with thousands of categories if it is computed out of fold and smoothed towards the overall mean; otherwise it leaks. Letting LightGBM or CatBoost handle categories natively was just as good, and simpler.</li>
+          <li><b>Average, don't over-tune.</b> Averaging the same few models over several random seeds improved my real leaderboard score. A long hyperparameter search looked better in cross-validation and then scored worse.</li>
+          <li><b>Believe the leaderboard over your laptop.</b> When they disagreed, the leaderboard was right, including about pseudo-labelling, which helped locally and hurt on Kaggle.</li>
+          <li><b>Write <code>submission.csv</code> early.</b> Long notebooks time out. Write the file after each stage, so a timeout still leaves a valid submission.</li>
+          <li><b>Rehearse the viva as code.</b> I prepared a five-minute walkthrough and practised writing PCA, a pipeline, target encoding, k-means and ridge regression without notes.</li>
+        </ol>
+      </div>
+    </section>
+
 </main>
 </div>
 
