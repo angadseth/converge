@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>og card</title>
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/paper.css">
+<link rel="stylesheet" href="../assets/css/figures.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--viewer); }
+  .card { position: absolute; inset: 34px 60px 0; background: #fff; box-shadow: var(--sheet-shadow); display: grid; grid-template-columns: 1fr 520px; gap: 34px; padding: 44px 40px 0 64px; }
+  .card .title { font-size: 40px; margin: 0 0 18px; text-align: left; padding: 16px 0 14px; }
+  .card .title__sub { font-size: 20px; }
+  .card .authors { text-align: left; font-size: 21px; margin: 0; }
+  .card .url { margin-top: 22px; font-family: var(--mono); font-size: 18px; color: var(--link); }
+  .card .keys { margin-top: 12px; font-size: 18px; color: var(--ink-2); font-style: italic; }
+  .fig { margin: 8px 0 0; }
+  .descent__ctl { display: none; }
+  .stamp { left: 26px; font-size: 17px; }
+</style>
+</head>
+<body>
+  <div class="card sheet" style="max-width:none; width:auto; margin:0">
+    <p class="stamp">converge:2609.00001v1 [iitm.ML] 22 Sep 2026</p>
+    <div>
+      <h1 class="title">On the Convergence of Students through MLF, MLT and MLP
+        <span class="title__sub">A senior's field guide to the machine learning courses of the IIT Madras BS Diploma in Data Science</span></h1>
+      <p class="authors"><span class="authors__name">Angad Jangir</span></p>
+      <p class="keys">Week maps, grading formulas, a marks calculator, the Sep 2026 calendar and every resource worth opening.</p>
+      <p class="url">angadseth.github.io/converge</p>
+    </div>
+    <figure class="fig">
+      <div class="fig__box descent" data-descent>
+        <canvas class="descent__plot" width="520" height="300"></canvas>
+        <div class="descent__ctl">
+          <input type="range" min="0.01" max="1" step="0.01" value="0.08" data-eta><output data-eta-out></output>
+          <input type="range" min="0" max="0.95" step="0.05" value="0.9" data-beta><output data-beta-out></output>
+          <button data-run></button><span data-log></span>
+        </div>
+      </div>
+      <figcaption class="fig__cap" style="font-size:16px"><b>Figure 1:</b> Gradient descent through the diploma.</figcaption>
+    </figure>
+  </div>
+  <script src="../assets/js/descent.js"></script>
+</body>
+</html>
