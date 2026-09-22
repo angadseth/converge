@@ -136,7 +136,8 @@ a.fnref { color: var(--link); font-size: 0.7em; vertical-align: super; line-heig
   display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
   margin: 0.9em 0;
 }
-.eq__body { text-align: center; font-size: 1.02em; line-height: 1.6; overflow-x: auto; }
+.eq__body { text-align: center; font-size: 0.94em; line-height: 1.6; overflow-x: auto; }
+@media (min-width: 861px) { .eq__body { white-space: nowrap; } }
 .eq__n { font-variant-numeric: lining-nums; }
 .eq var, .math var { font-style: italic; }
 .eq .op, .math .op { font-style: normal; padding: 0 0.12em; }
